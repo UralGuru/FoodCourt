@@ -1,0 +1,6 @@
+.next/
+node_modules/
+build/
+coverage/
+.husky/
+__mocks__/
