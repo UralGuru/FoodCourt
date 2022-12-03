@@ -2,7 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-
   border: 0;
 }
 
@@ -32,10 +31,9 @@ img {
 /* Выставляем основные настройки body и html */
 body {
   min-height: 100vh;
-
-  color: black;
-
-  font-family: 'Styrene UI', sans-serif;
+  color: white;
+  background-color: #232323;
+  font-family: "Styrene UI", sans-serif;
   line-height: 1.5;
   scroll-behavior: smooth;
   text-rendering: optimizespeed;
@@ -43,12 +41,9 @@ body {
 
 .html {
   position: relative;
-
   overflow-x: hidden;
   overflow-y: scroll;
-
   height: 100%;
-
   font-size: 100%;
   -webkit-overflow-scrolling: touch;
 }
@@ -59,9 +54,7 @@ html is-blocked {
 
 html is-blocked-touched {
   position: fixed;
-
   overflow-y: scroll;
-
   width: 100%;
   height: auto;
 }
@@ -97,7 +90,6 @@ select {
 /* Избавляемся от стандартных разрывов и границ в таблице */
 table {
   border-spacing: 0;
-
   border-collapse: collapse;
 }
 
