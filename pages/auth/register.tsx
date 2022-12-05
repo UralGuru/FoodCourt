@@ -4,6 +4,10 @@ import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import styles from './auth.module.scss';
 import { useForm } from "react-hook-form";
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import Link from "next/link";
+import {UrlManager} from "@shared/urls";
+
 
 export default function RegisterPage() {
     // const router = useRouter();
@@ -42,12 +46,14 @@ export default function RegisterPage() {
 
     return (
         <React.Fragment>
+
             <div className={styles.header}>РЕГИСТРАЦИЯ</div>
             <div className={styles.pageContent}>
                 <div className={styles.auth}>
                     <form onSubmit={handleSubmit(handleLogin)}>
 
                         <div className={styles.label}>
+                            <Link href={UrlManager.login}><AiOutlineArrowLeft className={styles.arrowBack}/></Link>
                             <label className={styles.labelText} htmlFor="name">Имя</label>
                             <div>
                                 <input

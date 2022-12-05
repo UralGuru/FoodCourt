@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react';
 import cn from 'classnames'
 import {AiOutlineGoogle} from 'react-icons/ai';
 import {BsEye, BsEyeSlash} from 'react-icons/bs';
-// import {useRouter} from 'next/navigation';
 import styles from './auth.module.scss';
-import Link from 'next/link';
+import Link from 'next/link'
 import {useForm} from "react-hook-form";
+import {UrlManager} from "@shared/urls";
+
 
 export default function LoginPage() {
     // const router = useRouter();
@@ -142,10 +143,11 @@ export default function LoginPage() {
                         </button>
                     </div>
 
-                    {/*<div className={styles.regText}>*/}
-                    {/*    Все еще нет аккаунта? Создай его*/}
-                    {/*    <Link href='./register'>здесь</Link>*/}
-                    {/*</div>*/}
+                    <div className={styles.regText}>
+                        Все еще нет аккаунта? Создай его
+                        {/*<Link href='/'>здесь</Link>*/}
+                        <Link href={UrlManager.register}><a className={styles.a}>здесь</a></Link>
+                    </div>
                 </div>
             </div>
         </React.Fragment>
