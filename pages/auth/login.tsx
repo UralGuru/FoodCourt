@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { UrlManager } from '@shared/urls';
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
 import { useRouter } from 'next/router';
 import styles from './auth.module.scss';
+import {useAppDispatch, useAppSelector} from "@store/hook";
 
 export default function LoginPage() {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.auth);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state: any) => state.auth);
   const [pswView, setPswView] = useState(false);
   const {
     register,
@@ -23,8 +23,8 @@ export default function LoginPage() {
 
   useEffect(() => {
     dispatch(clearMessage());
-    if (user.isLoggedIn) router.push(UrlManager.home);
-  }, [user.isLoggedIn]);
+    user.accessToken && router.push(UrlManager.home);
+  }, [user.accessToken]);
 
   const handleLogin = (formValue: any) => {
     dispatch(loginThunk(formValue));

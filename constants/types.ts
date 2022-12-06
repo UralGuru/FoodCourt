@@ -11,17 +11,13 @@ export type registerType = {
 };
 
 export type AuthStateType = {
-  isLoggedIn: Boolean;
+  isLoggedIn: boolean;
   accessToken: string | null;
   errors: string | null;
   expireDate: string | null;
-  isSuccess: Boolean;
+  isSuccess: boolean;
   message: string | null;
   refreshToken: string | null;
-};
-
-export type MessageStateType = {
-  message: string | null;
 };
 
 export type StoreType = {};

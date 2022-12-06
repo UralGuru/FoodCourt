@@ -8,13 +8,13 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import Link from 'next/link';
 import { UrlManager } from '@shared/urls';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
+import {useAppDispatch, useAppSelector} from "@store/hook";
 
 export default function RegisterPage() {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.auth);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state: any) => state.auth);
   const [pswView, setPswView] = useState(false);
   const {
     register,
