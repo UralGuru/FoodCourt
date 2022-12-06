@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import AuthService from '../../services/auth.service';
 import { AUTH_STATE, LOGIN, REGISTER } from '@constants/types';
+import AuthService from 'services/auth.service';
 
 const initialState: AUTH_STATE = {
   isLoggedIn: false,
@@ -59,8 +59,6 @@ const userSlice = createSlice({
         (action) => action.type.endsWith('/fulfilled'),
         (state, action) => {
           state.isLoggedIn = true;
-          // state = {...action.payload.user}
-          // state = action.payload.user
           state.accessToken = action.payload.user.acssessToken;
           state.errors = action.payload.user.errors;
           state.expireDate = action.payload.user.expireDate;

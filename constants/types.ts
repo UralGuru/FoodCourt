@@ -3,14 +3,14 @@ export interface LOGIN {
   password: string;
 }
 
-export type REGISTER = {
+export interface REGISTER {
   name: string;
   phone: string;
   email: string;
   password: string;
 };
 
-export type AUTH_STATE = {
+export interface AUTH_STATE {
   isLoggedIn: boolean;
   accessToken: string | null;
   errors: string | null;

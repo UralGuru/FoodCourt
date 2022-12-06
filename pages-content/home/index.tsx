@@ -1,9 +1,9 @@
-import { FC, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { UrlManager } from '@shared/urls';
-import { useRouter } from 'next/router';
 import React from 'react';
+import { FC, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 import { clearMessage } from '@store/slices/authSlice';
+import { UrlManager } from '@shared/urls';
 
 export const HomePageContent: FC = () => {
   const router = useRouter();

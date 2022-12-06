@@ -12,7 +12,6 @@ import { UrlManager } from '@shared/urls';
 import { LOGIN } from '@constants/types';
 
 import styles from './auth.module.scss';
-import AuthService from 'services/auth.service';
 
 export default function LoginPage() {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -26,7 +25,9 @@ export default function LoginPage() {
   } = useForm<LOGIN>();
   const onSubmit = handleSubmit((formValue) => dispatch(loginThunk(formValue)));
   const typePassword = isShowPassword ? 'text' : 'password';
-  const authMessage = user.isSuccess ? 'Успешная авторизация' : 'Неверный логин или пароль';
+  const authMessage = user.isSuccess
+    ? 'Успешная авторизация'
+    : 'Неверный логин или пароль';
   const passwordShowEyeIcon = isShowPassword ? (
     <BsEye style={{ fontSize: 20 }} />
   ) : (
