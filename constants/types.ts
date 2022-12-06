@@ -1,16 +1,16 @@
-export type loginType = {
+export interface LOGIN {
   email: string;
   password: string;
-};
+}
 
-export type registerType = {
+export type REGISTER = {
   name: string;
   phone: string;
   email: string;
   password: string;
 };
 
-export type AuthStateType = {
+export type AUTH_STATE = {
   isLoggedIn: boolean;
   accessToken: string | null;
   errors: string | null;
@@ -19,5 +19,3 @@ export type AuthStateType = {
   message: string | null;
   refreshToken: string | null;
 };
-
-export type StoreType = {};

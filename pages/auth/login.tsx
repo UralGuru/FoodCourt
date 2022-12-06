@@ -1,48 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import cn from 'classnames';
-import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { AiOutlineGoogle } from 'react-icons/ai';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { UrlManager } from '@shared/urls';
-import { clearMessage, loginThunk } from '@store/slices/authSlice';
 import { useRouter } from 'next/router';
-import styles from './auth.module.scss';
+import cn from 'classnames';
+
+import { clearMessage, loginThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@store/hook';
+import { UrlManager } from '@shared/urls';
+import { LOGIN } from '@constants/types';
+
+import styles from './auth.module.scss';
+import AuthService from 'services/auth.service';
 
 export default function LoginPage() {
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state: any) => state.auth);
-  const [pswView, setPswView] = useState(false);
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<LOGIN>();
+  const onSubmit = handleSubmit((formValue) => dispatch(loginThunk(formValue)));
+  const typePassword = isShowPassword ? 'text' : 'password';
+  const authMessage = user.isSuccess ? 'Успешная авторизация' : 'Неверный логин или пароль';
+  const passwordShowEyeIcon = isShowPassword ? (
+    <BsEye style={{ fontSize: 20 }} />
+  ) : (
+    <BsEyeSlash style={{ fontSize: 20 }} />
+  );
 
   useEffect(() => {
     dispatch(clearMessage());
     user.accessToken && router.push(UrlManager.home);
   }, [user.accessToken]);
 
-  const handleLogin = (formValue: any) => {
-    dispatch(loginThunk(formValue));
-  };
-
-  const passwordShowEyeIcon = pswView ? (
-    <BsEye style={{ fontSize: 20 }} />
-  ) : (
-    <BsEyeSlash style={{ fontSize: 20 }} />
-  );
-  const typePassword = pswView ? 'text' : 'password';
-
   return (
     <React.Fragment>
       <div className={styles.header}>Вход</div>
       <div className={styles.pageContent}>
         <div className={styles.auth}>
-          <form onSubmit={handleSubmit(handleLogin)}>
+          <form onSubmit={onSubmit}>
             {/* LOGIN */}
             <div className={styles.label}>
               <label className={styles.labelText} htmlFor='email'>
@@ -90,7 +91,7 @@ export default function LoginPage() {
                 />
                 <span
                   className={styles.eyeContainer}
-                  onClick={() => setPswView(!pswView)}
+                  onClick={() => setIsShowPassword(!isShowPassword)}
                 >
                   <span className={styles.eye}>{passwordShowEyeIcon}</span>
                 </span>
@@ -112,14 +113,7 @@ export default function LoginPage() {
           </form>
           {user.message && (
             <div className={styles.errorBlock}>
-              <div className={styles.errorMsg}>
-                {user.message === 'User has been successfully authenticated'
-                  ? 'Успешная авторизация ;)'
-                  : ~user.message.indexOf('User with email') ||
-                    ~user.message.indexOf('Invalid password')
-                  ? 'Неверный логин или пароль'
-                  : user.message}
-              </div>
+              <div className={styles.errorMsg}>{authMessage}</div>
             </div>
           )}
           {/*SUBMIT WIDTH GOOFLE*/}

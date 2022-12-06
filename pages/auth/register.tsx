@@ -1,49 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import cn from 'classnames';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import styles from './auth.module.scss';
-import { useForm } from 'react-hook-form';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import Link from 'next/link';
-import { UrlManager } from '@shared/urls';
+import cn from 'classnames';
 import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@store/hook';
+import { UrlManager } from '@shared/urls';
+import { REGISTER } from '@constants/types';
+
+import styles from './auth.module.scss';
 
 export default function RegisterPage() {
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state: any) => state.auth);
-  const [pswView, setPswView] = useState(false);
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<REGISTER>();
+  const onSubmit = handleSubmit((formValue) =>
+    dispatch(registerThunk(formValue))
+  );
+  const typePassword = isShowPassword ? 'text' : 'password';
+  const authMessage = user.isSuccess ? 'Успешная регистрация' : user.message;
+  const passwordShowEyeIcon = isShowPassword ? (
+    <BsEye style={{ fontSize: 20 }} />
+  ) : (
+    <BsEyeSlash style={{ fontSize: 20 }} />
+  );
 
   useEffect(() => {
     dispatch(clearMessage());
     if (user.isLoggedIn) router.push(UrlManager.login);
   }, [user.isSuccess]);
 
-  const handleRegister = (formValue: any) => {
-    dispatch(registerThunk(formValue));
-  };
-
-  const passwordShowEyeIcon = pswView ? (
-    <BsEye style={{ fontSize: 20 }} />
-  ) : (
-    <BsEyeSlash style={{ fontSize: 20 }} />
-  );
-  const typePassword = pswView ? 'text' : 'password';
-
   return (
     <React.Fragment>
       <div className={styles.header}>РЕГИСТРАЦИЯ</div>
       <div className={styles.pageContent}>
         <div className={styles.auth}>
-          <form onSubmit={handleSubmit(handleRegister)}>
+          <form onSubmit={onSubmit}>
             {/* NAME */}
             <div className={styles.label}>
               <Link href={UrlManager.login}>
@@ -78,16 +79,16 @@ export default function RegisterPage() {
               <div>
                 <input
                   id='phone'
-                  className={cn(styles.labelInput)}
+                  className={styles.labelInput}
                   {...register('phone', {
                     required: 'phone',
                   })}
                   type='text'
                 />
-                {errors.name && (
+                {errors.phone && (
                   <div>
                     <span className={styles.errorMsg} role='alert'>
-                      Введите имя
+                      Введите телефон
                     </span>
                   </div>
                 )}
@@ -101,7 +102,7 @@ export default function RegisterPage() {
               <div>
                 <input
                   id='email'
-                  className={cn(styles.labelInput)}
+                  className={styles.labelInput}
                   {...register('email', {
                     required: 'required',
                     pattern: {
@@ -128,7 +129,7 @@ export default function RegisterPage() {
               <div>
                 <input
                   id='password'
-                  className={cn(styles.labelInput)}
+                  className={styles.labelInput}
                   {...register('password', {
                     required: 'required',
                     minLength: {
@@ -140,7 +141,7 @@ export default function RegisterPage() {
                 />
                 <span
                   className={styles.eyeContainer}
-                  onClick={() => setPswView(!pswView)}
+                  onClick={() => setIsShowPassword(!isShowPassword)}
                 >
                   <span className={styles.eye}>{passwordShowEyeIcon}</span>
                 </span>
@@ -162,23 +163,18 @@ export default function RegisterPage() {
           </form>
           {user.message && (
             <div className={styles.errorBlock}>
-              <div className={styles.errorMsg}>
-                {user.message === 'User did not created'
-                  ? 'Пользователь не создан'
-                  : user.isSuccess
-                  ? 'Успешная регистрация'
-                  : user.message}
-              </div>
+              <div className={styles.errorMsg}>{authMessage}</div>
             </div>
           )}
           {/*SUBMIT WIDTH GOOFLE*/}
           <div className={styles.textGroupBetweenBtn}>
-            <div className={styles.textBetweenBtn}>Или войдите с помощью</div>
+            <div className={styles.textBetweenBtn}>
+              Или зарегистрируйтесь с помощью
+            </div>
           </div>
           <div>
             <button
               className={cn(styles.button, styles.buttonGoogle)}
-              // disabled={loading}
               // onClick={() => AuthService.loginWidthGoogle()}
               onClick={() => console.log('Auth width Google')}
             >
