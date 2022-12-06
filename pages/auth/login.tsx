@@ -8,7 +8,7 @@ import { UrlManager } from '@shared/urls';
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
 import { useRouter } from 'next/router';
 import styles from './auth.module.scss';
-import {useAppDispatch, useAppSelector} from "@store/hook";
+import { useAppDispatch, useAppSelector } from '@store/hook';
 
 export default function LoginPage() {
   const router = useRouter();

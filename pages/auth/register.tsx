@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { UrlManager } from '@shared/urls';
 import { useRouter } from 'next/router';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
-import {useAppDispatch, useAppSelector} from "@store/hook";
+import { useAppDispatch, useAppSelector } from '@store/hook';
 
 export default function RegisterPage() {
   const router = useRouter();
