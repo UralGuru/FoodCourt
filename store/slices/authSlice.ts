@@ -20,14 +20,8 @@ export const loginThunk = createAsyncThunk(
       const data = await AuthService.login(loginSliceData);
       return { user: data };
     } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+      const message = (error?.response?.data?.message) || error.message || error.toString();
       thunkAPI.dispatch(setMessage(message));
-      // @ts-ignore
       return thunkAPI.rejectWithValue();
     }
   }
@@ -40,14 +34,8 @@ export const registerThunk = createAsyncThunk(
       const data = await AuthService.register(loginSliceData);
       return { user: data };
     } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+      const message = (error?.response?.data?.message) || error.message || error.toString();
       thunkAPI.dispatch(setMessage(message));
-      // @ts-ignore
       return thunkAPI.rejectWithValue();
     }
   }
@@ -89,6 +77,6 @@ const userSlice = createSlice({
   },
 });
 
-const { reducer, actions } = userSlice;
+const { actions } = userSlice;
 export const { setMessage, clearMessage } = actions;
 export default userSlice.reducer;
