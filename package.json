@@ -14,11 +14,12 @@
     "lint": "next lint",
     "code-format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|ts|tsx|json)\"",
     "style-format": "stylelint --ignore-path .gitignore \"**/*.+(css|scss|saas)\" --fix",
-    "prepare-for-pull": "npm-run-all --parallel lint style-format code-format"
+    "prepare-for-pull": "npm-run-all --parallel lint code-format"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@types/react-redux": "^7.1.24",
+    "axios": "^1.2.0",
     "classnames": "2.3.1",
     "lodash.clonedeep": "4.5.0",
     "nanoid": "4.0.0",
