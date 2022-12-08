@@ -55,22 +55,19 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(
-        (action) => action.type.endsWith('/fulfilled'),
+        .addCase(loginThunk.fulfilled, (state, action) => {
+            // напрямую state = action.payload.user не работает (
+            state.isLoggedIn = true;
+            state.accessToken = action.payload.user.acssessToken;
+            state.errors = action.payload.user.errors;
+            state.expireDate = action.payload.user.expireDate;
+            state.isSuccess = action.payload.user.isSuccess;
+            state.message = action.payload.user.message;
+            state.refreshToken = action.payload.user.refreshToken;
+        })
+      .addCase(loginThunk.rejected,
         (state, action) => {
-          state.isLoggedIn = true;
-          state.accessToken = action.payload.user.acssessToken;
-          state.errors = action.payload.user.errors;
-          state.expireDate = action.payload.user.expireDate;
-          state.isSuccess = action.payload.user.isSuccess;
-          state.message = action.payload.user.message;
-          state.refreshToken = action.payload.user.refreshToken;
-        }
-      )
-      .addMatcher(
-        (action) => action.type.endsWith('/rejected'),
-        (state) => {
-          state = INITIAL_STATE;
+          state.message = "Error";
         }
       );
   },
