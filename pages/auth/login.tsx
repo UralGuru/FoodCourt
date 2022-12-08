@@ -9,7 +9,7 @@ import cn from 'classnames';
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@store/hook';
 import { UrlManager } from '@shared/urls';
-import { LOGIN } from '@constants/types';
+import { LoginType } from '@constants/types';
 
 import styles from './auth.module.scss';
 
@@ -22,7 +22,7 @@ export default function LoginPage() {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<LOGIN>();
+  } = useForm<LoginType>();
   const onSubmit = handleSubmit((formValue) => dispatch(loginThunk(formValue)));
   const typePassword = isShowPassword ? 'text' : 'password';
   const authMessage = user.isSuccess

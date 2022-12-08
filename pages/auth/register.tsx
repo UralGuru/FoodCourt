@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@store/hook';
 import { UrlManager } from '@shared/urls';
-import { REGISTER } from '@constants/types';
+import { RegisterType } from '@constants/types';
 
 import styles from './auth.module.scss';
 
@@ -22,7 +22,7 @@ export default function RegisterPage() {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<REGISTER>();
+  } = useForm<RegisterType>();
   const onSubmit = handleSubmit((formValue) =>
     dispatch(registerThunk(formValue))
   );

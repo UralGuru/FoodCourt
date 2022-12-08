@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { AUTH_STATE, LOGIN, REGISTER } from '@constants/types';
+import { AuthStateType, LoginType, RegisterType } from '@constants/types';
 import AuthService from 'services/auth.service';
 
-const initialState: AUTH_STATE = {
+const INITIAL_STATE: AuthStateType = {
   isLoggedIn: false,
   accessToken: null,
   errors: null,
@@ -14,7 +14,7 @@ const initialState: AUTH_STATE = {
 
 export const loginThunk = createAsyncThunk(
   'auth/login',
-  async (loginSliceData: LOGIN, thunkAPI) => {
+  async (loginSliceData: LoginType, thunkAPI) => {
     try {
       const data = await AuthService.login(loginSliceData);
       return { user: data };
@@ -29,7 +29,7 @@ export const loginThunk = createAsyncThunk(
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
-  async (loginSliceData: REGISTER, thunkAPI) => {
+  async (loginSliceData: RegisterType, thunkAPI) => {
     try {
       const data = await AuthService.register(loginSliceData);
       return { user: data };
@@ -44,7 +44,7 @@ export const registerThunk = createAsyncThunk(
 
 const userSlice = createSlice({
   name: 'user',
-  initialState,
+  initialState: INITIAL_STATE,
   reducers: {
     setMessage: (state, action) => {
       state.message = action.payload;
@@ -70,7 +70,7 @@ const userSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith('/rejected'),
         (state) => {
-          state = initialState;
+          state = INITIAL_STATE;
         }
       );
   },
