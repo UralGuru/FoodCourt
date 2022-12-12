@@ -4,12 +4,12 @@ import AuthService from 'services/auth.service';
 
 const INITIAL_STATE: AuthState = {
   isLoggedIn: false,
-  accessToken: "",
-  errors: "",
-  expireDate: "",
+  accessToken: '',
+  errors: '',
+  expireDate: '',
   isSuccess: false,
-  message: "",
-  refreshToken: "",
+  message: '',
+  refreshToken: '',
 };
 
 export const loginThunk = createAsyncThunk(
