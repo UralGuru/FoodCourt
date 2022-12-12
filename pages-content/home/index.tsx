@@ -1,13 +1,13 @@
 import React, { useLayoutEffect } from 'react';
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import {  AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { clearMessage } from '@store/slices/authSlice';
 import CafeCard from '@components/cards/cafeCard/cafeCard';
 import { getCafesThunk } from '@store/slices/cafeSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './home.module.scss';
-import {URLManager} from "@shared/url-manager";
+import { URLManager } from '@shared/url-manager';
 
 export const HomePageContent: FC = () => {
   const router = useRouter();

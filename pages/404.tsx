@@ -13,16 +13,15 @@ export default function PageNotFound() {
   }, []);
 
   const styles: React.CSSProperties = {
-      height: '90vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      textAlign: 'center',
-  }
+    height: '90vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+  };
 
   return (
-    <div style={styles}
-    >
+    <div style={styles}>
       <div>СТРАНИЦА НЕ НАЙДЕНА</div>
     </div>
   );

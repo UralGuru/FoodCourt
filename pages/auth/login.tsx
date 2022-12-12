@@ -5,38 +5,44 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
-import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import { UrlManager } from '@shared/urls';
 import { Login } from '@constants/types';
-
+import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './auth.module.scss';
+import { URLManager } from '@shared/url-manager';
 
 export default function LoginPage() {
-  const [isShowPassword, setIsShowPassword] = useState(false);
+  // Vars
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state: any) => state.auth);
+
+  const [isShowPassword, setIsShowPassword] = useState(false);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<Login>();
-  const onSubmit = handleSubmit((formValue) => dispatch(loginThunk(formValue)));
-  const typePassword = isShowPassword ? 'text' : 'password';
+
+  const typeOfPassword = isShowPassword ? 'text' : 'password';
   const authMessage = user.isSuccess
     ? 'Успешная авторизация'
     : 'Неверный логин или пароль';
-  const passwordShowEyeIcon = isShowPassword ? (
-    <BsEye style={{ fontSize: 20 }} />
-  ) : (
-    <BsEyeSlash style={{ fontSize: 20 }} />
+
+  // Handlers
+  const handlerFormSubmit = handleSubmit((formValue) =>
+    dispatch(loginThunk(formValue))
   );
 
+  // Events
   useEffect(() => {
     dispatch(clearMessage());
-    user.accessToken && router.push(UrlManager.home);
+  }, []);
+
+  useEffect(() => {
+    if (user.accessToken) router.push(URLManager.getHomeURL());
   }, [user.accessToken]);
 
   return (
@@ -44,7 +50,7 @@ export default function LoginPage() {
       <div className={styles.header}>Вход</div>
       <div className={styles.pageContent}>
         <div className={styles.auth}>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={handlerFormSubmit}>
             {/* LOGIN */}
             <div className={styles.label}>
               <label className={styles.labelText} htmlFor='email'>
@@ -88,13 +94,16 @@ export default function LoginPage() {
                       message: '',
                     },
                   })}
-                  type={typePassword}
+                  type={typeOfPassword}
                 />
                 <span
                   className={styles.eyeContainer}
                   onClick={() => setIsShowPassword(!isShowPassword)}
                 >
-                  <span className={styles.eye}>{passwordShowEyeIcon}</span>
+                  <span className={styles.eye}>
+                    {isShowPassword && <BsEye style={{ fontSize: 20 }} />}
+                    {!isShowPassword && <BsEyeSlash style={{ fontSize: 20 }} />}
+                  </span>
                 </span>
                 {errors.password && (
                   <div>
@@ -133,7 +142,7 @@ export default function LoginPage() {
           </div>
           <div className={styles.regText}>
             Все еще нет аккаунта? Создай его
-            <Link href={UrlManager.registration}>
+            <Link href={URLManager.getRegistrationURL()}>
               <a className={styles.redirectTo}>здесь</a>
             </Link>
           </div>

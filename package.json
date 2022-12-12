@@ -13,7 +13,7 @@
     "lint": "next lint",
     "code-format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|ts|tsx|json)\"",
     "style-format": "stylelint --ignore-path .gitignore \"**/*.+(css|scss|saas)\" --fix",
-    "prepare-for-pull": "npm-run-all --parallel lint style-format code-format"
+    "prepare-for-pull": "npm-run-all --parallel lint code-format"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.1",
