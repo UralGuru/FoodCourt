@@ -5,7 +5,7 @@ import cafeReducer from './slices/cafeSlice';
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    cafe: cafeReducer
+    cafe: cafeReducer,
   },
 });
 export default store;
