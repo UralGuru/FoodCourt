@@ -55,21 +55,19 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-        .addCase(loginThunk.fulfilled, (state, action) => {
-            // напрямую state = action.payload.user не работает (
-            state.isLoggedIn = true;
-            state.accessToken = action.payload.user.acssessToken;
-            state.errors = action.payload.user.errors;
-            state.expireDate = action.payload.user.expireDate;
-            state.isSuccess = action.payload.user.isSuccess;
-            state.message = action.payload.user.message;
-            state.refreshToken = action.payload.user.refreshToken;
-        })
-      .addCase(loginThunk.rejected,
-        (state, action) => {
-          state.message = "Error";
-        }
-      );
+      .addCase(loginThunk.fulfilled, (state, action) => {
+        // напрямую state = action.payload.user не работает (
+        state.isLoggedIn = true;
+        state.accessToken = action.payload.user.acssessToken;
+        state.errors = action.payload.user.errors;
+        state.expireDate = action.payload.user.expireDate;
+        state.isSuccess = action.payload.user.isSuccess;
+        state.message = action.payload.user.message;
+        state.refreshToken = action.payload.user.refreshToken;
+      })
+      .addCase(loginThunk.rejected, (state, action) => {
+        state.message = 'Error';
+      });
   },
 });
 

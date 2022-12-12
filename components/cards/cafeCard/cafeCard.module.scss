@@ -1,0 +1,44 @@
+.cafeList{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cafeItem{
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  border-radius: 20px;
+
+  justify-content: end;
+  background-repeat:no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
+}
+
+.cafeName{
+  margin: auto;
+  text-transform: uppercase;
+  align-self: center;
+  transform: translateY(15px);
+}
+
+.cafeDescription{
+  display: flex;
+  width: 90%;
+  margin: 0 auto 5px;
+  justify-content: space-between;
+}
+
+.rating{
+  align-items: center;
+  display: flex;
+}
+
+.ratingStar{
+  font-size: 15px;
+  margin-right: 5px;
+}
