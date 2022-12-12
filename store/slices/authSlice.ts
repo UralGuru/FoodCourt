@@ -1,20 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { AuthStateType, LoginType, RegisterType } from '@constants/types';
+import { AuthState, Login, Register } from '@constants/types';
 import AuthService from 'services/auth.service';
 
-const INITIAL_STATE: AuthStateType = {
+const INITIAL_STATE: AuthState = {
   isLoggedIn: false,
-  accessToken: null,
-  errors: null,
-  expireDate: null,
+  accessToken: "",
+  errors: "",
+  expireDate: "",
   isSuccess: false,
-  message: null,
-  refreshToken: null,
+  message: "",
+  refreshToken: "",
 };
 
 export const loginThunk = createAsyncThunk(
   'auth/login',
-  async (loginSliceData: LoginType, thunkAPI) => {
+  async (loginSliceData: Login, thunkAPI) => {
     try {
       const data = await AuthService.login(loginSliceData);
       return { user: data };
@@ -29,7 +29,7 @@ export const loginThunk = createAsyncThunk(
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
-  async (loginSliceData: RegisterType, thunkAPI) => {
+  async (loginSliceData: Register, thunkAPI) => {
     try {
       const data = await AuthService.register(loginSliceData);
       return { user: data };
