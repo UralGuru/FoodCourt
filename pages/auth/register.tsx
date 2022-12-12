@@ -7,7 +7,7 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
-import { useAppDispatch, useAppSelector } from '@store/hook';
+import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import { UrlManager } from '@shared/urls';
 import { Register } from '@constants/types';
 

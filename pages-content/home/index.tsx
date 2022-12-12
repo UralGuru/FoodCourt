@@ -6,7 +6,7 @@ import { clearMessage } from '@store/slices/authSlice';
 import { UrlManager } from '@shared/urls';
 import CafeCard from '@components/cards/cafeCard/cafeCard';
 import { getCafesThunk } from '@store/slices/cafeSlice';
-import { useAppDispatch, useAppSelector } from '@store/hook';
+import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './home.module.scss';
 
 export const HomePageContent: FC = () => {

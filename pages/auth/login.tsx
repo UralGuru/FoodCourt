@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import cn from 'classnames';
 
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
-import { useAppDispatch, useAppSelector } from '@store/hook';
+import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import { UrlManager } from '@shared/urls';
 import { Login } from '@constants/types';
 
