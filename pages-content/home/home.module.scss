@@ -1,4 +1,4 @@
-@import "/styles/theme";
+@import "../../styles/colors";
 
 .content{
   width: 90%;
@@ -13,7 +13,7 @@
 
 .userName{
   font-size: 20px;
-  font-weight: $fw-open-sans-bold;
+  font-weight: 700;
 }
 
 .userIcon{
@@ -23,7 +23,7 @@
   border-radius: 100%;
   text-align: center;
   line-height: 50px;
-  font-weight: $fw-open-sans-extra-bold;
+  font-weight: 800;
   font-size: 25px;
 }
 

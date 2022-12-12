@@ -1,4 +1,4 @@
-@import "/styles/theme";
+@import "../../styles/colors";
 
 .pageContent {
   display: flex;
@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   height: 90vh;
-  font-family: $ff-open-sans;
+  font-family: "Open Sans", sans-serif;
   user-select: none;
 }
 
@@ -41,7 +41,7 @@
 .labelText {
   width: 100%;
   font-size: 16px;
-  font-weight: $fw-open-sans-regular;
+  font-weight: 400;
 }
 
 .labelInput {
@@ -90,7 +90,7 @@
   border-radius: 20px;
   background-color: $red-active-rampage;
   font-size: 20px;
-  font-weight: $fw-open-sans-semi-bold;
+  font-weight: 600;
 
   &:active {
     user-select: none;
