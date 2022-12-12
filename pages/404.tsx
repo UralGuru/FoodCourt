@@ -6,9 +6,10 @@ export default function PageNotFound() {
   const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timerFunction = setTimeout(() => {
       router.push(UrlManager.home);
     }, 3000);
+    return () => clearTimeout(timerFunction);
   }, []);
 
   return (
