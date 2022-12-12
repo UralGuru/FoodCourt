@@ -133,7 +133,7 @@ export default function LoginPage() {
           </div>
           <div className={styles.regText}>
             Все еще нет аккаунта? Создай его
-            <Link href={UrlManager.register}>
+            <Link href={UrlManager.registration}>
               <a className={styles.redirectTo}>здесь</a>
             </Link>
           </div>

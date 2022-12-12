@@ -1,13 +1,13 @@
 import React, { useLayoutEffect } from 'react';
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { AiFillStar, AiOutlineSearch } from 'react-icons/ai';
+import {  AiOutlineSearch } from 'react-icons/ai';
 import { clearMessage } from '@store/slices/authSlice';
-import { UrlManager } from '@shared/urls';
 import CafeCard from '@components/cards/cafeCard/cafeCard';
 import { getCafesThunk } from '@store/slices/cafeSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './home.module.scss';
+import {URLManager} from "@shared/url-manager";
 
 export const HomePageContent: FC = () => {
   const router = useRouter();
@@ -24,7 +24,7 @@ export const HomePageContent: FC = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!user.isLoggedIn) router.push(UrlManager.login);
+    if (!user.isLoggedIn) router.push(URLManager.getLoginURL());
   }, [user.isLoggedIn]);
 
   return (
