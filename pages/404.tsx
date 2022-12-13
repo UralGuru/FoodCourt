@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { UrlManager } from '@shared/urls';
+import {URLManager} from "@shared/url-manager";
 
 export default function PageNotFound() {
   const router = useRouter();
 
   useEffect(() => {
     const timerFunction = setTimeout(() => {
-      router.push(UrlManager.home);
+      router.push(URLManager.getHomeURL());
     }, 3000);
     return () => clearTimeout(timerFunction);
   }, []);

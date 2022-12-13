@@ -48,7 +48,7 @@ export const HomePageContent: FC = () => {
             name={cafe.name}
             distance={cafe.distance}
             avatar={cafe.avatar}
-            adress={cafe.address}
+            address={cafe.address}
           />
         ))}
       </div>

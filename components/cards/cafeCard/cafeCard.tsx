@@ -7,13 +7,11 @@ interface CafeCard {
   name: string;
   distance: string;
   avatar: string;
-  adress: string;
+  address: string;
 }
 
 export default function CafeCard(props: CafeCard) {
-  const rating = (Math.floor(Math.random() * (50 - 30 + 1) + 30) / 10).toFixed(
-    1
-  );
+  const rating = (Math.floor(Math.random() * (50 - 30 + 1) + 30) / 10).toFixed(1);
 
   return (
     <div className={styles.cafeList}>
