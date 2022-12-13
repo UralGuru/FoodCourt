@@ -6,11 +6,11 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
-import { UrlManager } from '@shared/urls';
 import { Login } from '@constants/types';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
-import styles from './auth.module.scss';
 import { URLManager } from '@shared/url-manager';
+import styles from './auth.module.scss';
+
 
 export default function LoginPage() {
   // Vars

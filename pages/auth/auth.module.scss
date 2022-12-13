@@ -14,13 +14,6 @@
   user-select: none;
 }
 
-.arrowBack{
-  position: absolute;
-  font-size: 25px;
-  top: 15px;
-  transform: translateX(-2px);
-}
-
 .header {
   position: relative;
   top: 0;
@@ -134,4 +127,12 @@
   border-bottom: 1px solid $grey-rainy;
   outline: 0;
   highlight-color: transparent;
+}
+
+.arrowBack{
+  position: absolute;
+  font-size: 25px;
+  top: 15px;
+  transform: translateX(-2px);
+  border: none;
 }

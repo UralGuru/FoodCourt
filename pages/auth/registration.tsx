@@ -8,35 +8,41 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
-import { UrlManager } from '@shared/urls';
+import {URLManager} from "@shared/url-manager";
 import { Register } from '@constants/types';
-
 import styles from './auth.module.scss';
 
+
 export default function RegisterPage() {
-  const [isShowPassword, setIsShowPassword] = useState(false);
+  // Vars
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state: any) => state.auth);
+
+  const [isShowPassword, setIsShowPassword] = useState(false);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<Register>();
-  const onSubmit = handleSubmit((formValue) =>
+
+  const typeOfPassword = isShowPassword ? 'text' : 'password';
+  const authMessage = user.isSuccess ? 'Успешная регистрация' : user.message;
+
+  // Handlers
+  const handlerFormSubmit = handleSubmit((formValue) =>
     dispatch(registerThunk(formValue))
   );
-  const typePassword = isShowPassword ? 'text' : 'password';
-  const authMessage = user.isSuccess ? 'Успешная регистрация' : user.message;
-  const passwordShowEyeIcon = isShowPassword ? (
-    <BsEye style={{ fontSize: 20 }} />
-  ) : (
-    <BsEyeSlash style={{ fontSize: 20 }} />
-  );
 
+
+  // Events
   useEffect(() => {
     dispatch(clearMessage());
-    if (user.isLoggedIn) router.push(UrlManager.login);
+  }, []);
+
+  useEffect(() => {
+    if (user.isLoggedIn) router.push(URLManager.getHomeURL());
   }, [user.isSuccess]);
 
   return (
@@ -44,11 +50,11 @@ export default function RegisterPage() {
       <div className={styles.header}>РЕГИСТРАЦИЯ</div>
       <div className={styles.pageContent}>
         <div className={styles.auth}>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={handlerFormSubmit}>
             {/* NAME */}
             <div className={styles.label}>
-              <Link href={UrlManager.login}>
-                <AiOutlineArrowLeft className={styles.arrowBack} />
+              <Link href={URLManager.getLoginURL()}>
+                <a><AiOutlineArrowLeft className={cn(styles.arrowBack, styles.redirectTo)} /></a>
               </Link>
               <label className={styles.labelText} htmlFor='name'>
                 Имя
@@ -137,13 +143,16 @@ export default function RegisterPage() {
                       message: '',
                     },
                   })}
-                  type={typePassword}
+                  type={typeOfPassword}
                 />
                 <span
                   className={styles.eyeContainer}
                   onClick={() => setIsShowPassword(!isShowPassword)}
                 >
-                  <span className={styles.eye}>{passwordShowEyeIcon}</span>
+                  <span className={styles.eye}>
+                    {isShowPassword && <BsEye style={{ fontSize: 20 }} />}
+                    {!isShowPassword && <BsEyeSlash style={{ fontSize: 20 }} />}
+                  </span>
                 </span>
                 {errors.password && (
                   <div>
