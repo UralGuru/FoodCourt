@@ -1,21 +1,21 @@
-export interface LoginType {
+export interface Login {
   email: string;
   password: string;
 }
 
-export interface RegisterType {
+export interface Register {
   name: string;
   phone: string;
   email: string;
   password: string;
 }
 
-export interface AuthStateType {
+export interface AuthState {
   isLoggedIn: boolean;
-  accessToken: string | null;
-  errors: string | null;
-  expireDate: string | null;
+  accessToken: string;
+  errors: string;
+  expireDate: string;
   isSuccess: boolean;
-  message: string | null;
-  refreshToken: string | null;
+  message: string;
+  refreshToken: string;
 }
