@@ -8,10 +8,9 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
-import {URLManager} from "@shared/url-manager";
+import { URLManager } from '@shared/url-manager';
 import { Register } from '@constants/types';
 import styles from './auth.module.scss';
-
 
 export default function RegisterPage() {
   // Vars
@@ -35,7 +34,6 @@ export default function RegisterPage() {
     dispatch(registerThunk(formValue))
   );
 
-
   // Events
   useEffect(() => {
     dispatch(clearMessage());
@@ -54,7 +52,11 @@ export default function RegisterPage() {
             {/* NAME */}
             <div className={styles.label}>
               <Link href={URLManager.getLoginURL()}>
-                <a><AiOutlineArrowLeft className={cn(styles.arrowBack, styles.redirectTo)} /></a>
+                <a>
+                  <AiOutlineArrowLeft
+                    className={cn(styles.arrowBack, styles.redirectTo)}
+                  />
+                </a>
               </Link>
               <label className={styles.labelText} htmlFor='name'>
                 Имя

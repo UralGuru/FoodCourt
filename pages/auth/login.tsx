@@ -11,7 +11,6 @@ import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import { URLManager } from '@shared/url-manager';
 import styles from './auth.module.scss';
 
-
 export default function LoginPage() {
   // Vars
   const router = useRouter();
