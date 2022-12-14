@@ -20,8 +20,14 @@ const getCafes = async () => {
   return response.data;
 };
 
+const getCafeItem = async (id: number) => {
+  const response = await instance.get(`/cafes/${id}/products`);
+  return response.data;
+};
+
 const CafeService = {
   getCafes,
+  getCafeItem
 };
 
 export default CafeService;
