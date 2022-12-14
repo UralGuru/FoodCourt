@@ -1,0 +1,91 @@
+@import "/styles/colors";
+
+.content {
+  width: 90%;
+  margin: 15px auto 0;
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafeName {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+
+.cafeProductItem{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cafeProductImage {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-basis: 35%;
+  height: 130px;
+  border: 1px solid grey;
+  border-radius: 10px;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.cafeProductTextContent{
+  flex-basis: 60%;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cafeProductTitle{
+
+}
+
+.cafeProductFooter{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cafeProductPrice{
+
+}
+
+.cafeProductCounter{
+  width: 80px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

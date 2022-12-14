@@ -36,11 +36,11 @@ export function CafeItemPageContent(): JSX.Element {
                             <AiOutlineArrowLeft className={cn(styles.arrowBack, styles.redirectTo)}/>
                         </a>
                     </Link>
-                    <div className={styles.cafeName}>{eventCafe.name}</div>
+                    <div className={styles.cafeName}>{eventCafe?.name}</div>
                     <div><AiOutlineSearch style={{fontSize: '25'}}/></div>
                 </div>
 
-                {cafeItemProducts.map(product => <CafeItemProductsCard key={product.id}
+                {eventCafe && cafeItemProducts.map(product => <CafeItemProductsCard key={product.id}
                                                                         id={product.id}
                                                                         cafeId={product.cafeId}
                                                                         avatar={product.avatar}

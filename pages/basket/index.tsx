@@ -2,6 +2,7 @@ import React from 'react';
 import 'regenerator-runtime/runtime';
 import {NextPage} from "next";
 import Head from "next/head";
+import {Basket} from "@pages-content/basket/basket";
 
 const BasketPage: NextPage = () => {
     return (
@@ -9,7 +10,7 @@ const BasketPage: NextPage = () => {
             <Head>
                 <title>Basket</title>
             </Head>
-            <p>Basket</p>
+            <Basket />
         </React.Fragment>
     );
 };
