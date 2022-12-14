@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./basket.module.scss"
-import {BasketProductCard} from "@components/cards/basketProductCard/basketProductCard";
 import {BasketCard} from "@components/cards/basketCard/basketCard";
 
 export function Basket() {
@@ -10,7 +9,14 @@ export function Basket() {
                 <div className={styles.cafeName}>КОРЗИНА</div>
             </div>
             <BasketCard />
-            <BasketCard />
+            {/*<BasketCard />*/}
         </div>
+
+        <div className={styles.submitButton}>
+            <div className={styles.button}>
+                <div>Оформить заказ</div>
+            </div>
+        </div>
+        <div className={styles.placeForButtons}/>
     </React.Fragment>
 }
