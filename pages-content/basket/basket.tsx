@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./basket.module.scss"
+import {BasketProductCard} from "@components/cards/basketProductCard/basketProductCard";
+import {BasketCard} from "@components/cards/basketCard/basketCard";
 
 export function Basket() {
     return <React.Fragment>
@@ -7,23 +9,8 @@ export function Basket() {
             <div className={styles.header}>
                 <div className={styles.cafeName}>КОРЗИНА</div>
             </div>
-            <div>
-                <div>ВашРестроран</div>
-                <div className={styles.cafeProductItem}>
-                    <div className={styles.cafeProductImage}></div>
-                    <div className={styles.cafeProductTextContent}>
-                        <div className={styles.cafeProductTitle}>PizzaMargarita</div>
-                        <div className={styles.cafeProductFooter}>
-                            <div className={styles.cafeProductPrice}>181 R</div>
-                            <div className={styles.cafeProductCounter}>
-                                <div>-</div>
-                                <div>1</div>
-                                <div>+</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <BasketCard />
+            <BasketCard />
         </div>
     </React.Fragment>
 }

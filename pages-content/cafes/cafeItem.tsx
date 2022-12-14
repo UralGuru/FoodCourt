@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useLayoutEffect, useState} from 'react';
 import styles from './cafeItem.module.scss';
-import CafeItemProductsCard from "@components/cards/cafeItemCard/cafeItemProductsCard";
+import CafeItemProductsCard from "@components/cards/cafeProductCard/cafeItemProductsCard";
 import {AiOutlineArrowLeft, AiOutlineSearch} from 'react-icons/ai';
 import {useAppDispatch, useAppSelector} from "@shared/hooks";
 import {clearCafeProductState, getCafeItemProductsThunk} from "@store/slices/cafeSlice";
