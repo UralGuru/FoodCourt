@@ -8,8 +8,6 @@ import { getCafesThunk } from '@store/slices/cafeSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './home.module.scss';
 import { URLManager } from '@shared/url-manager';
-import cn from "classnames";
-import {Navbar} from "@components/navbar/navbar";
 
 export const HomePageContent: FC = () => {
   const router = useRouter();
@@ -55,7 +53,6 @@ export const HomePageContent: FC = () => {
         ))}
       </div>
 
-      <Navbar />
     </React.Fragment>
   );
 };

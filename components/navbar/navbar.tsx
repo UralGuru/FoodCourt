@@ -1,8 +1,8 @@
-import styles from "./navbar.module.scss";
 import cn from "classnames";
 import React from "react";
 import {useRouter} from "next/router";
 import {URLManager} from "@shared/url-manager";
+import styles from "./navbar.module.scss";
 
 export const Navbar = () => {
     const router = useRouter();
@@ -16,6 +16,8 @@ export const Navbar = () => {
     const activeBasketPage = router.pathname === URLManager.getBasketURL() ? styles.navbarItemActive : '';
     const activeSettingsPage = router.pathname === URLManager.getSettingsURL() ? styles.navbarItemActive : '';
     const activeHistoryPage = router.pathname === URLManager.getHistoryURL() ? styles.navbarItemActive : '';
+
+    if (router.pathname === URLManager.getLoginURL() || router.pathname === URLManager.getRegistrationURL()) return <></>
 
     return (
         <div className={styles.navbar}>
