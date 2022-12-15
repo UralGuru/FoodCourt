@@ -67,7 +67,17 @@ const userSlice = createSlice({
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.message = 'Error';
-      });
+      })
+
+        .addCase(registerThunk.fulfilled, (state,action)=>{
+            state.isSuccess = action.payload.user.isSuccess;
+            state.message = action.payload.user.message;
+        })
+        .addCase(registerThunk.rejected, (state, action) => {
+            state.message = 'Error';
+        })
+
+    ;
   },
 });
 

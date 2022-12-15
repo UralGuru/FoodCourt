@@ -1,5 +1,6 @@
 @import "/styles/colors";
 
+
 .content {
   width: 90%;
   margin: 15px auto 0;
@@ -12,9 +13,35 @@
   align-items: center;
 }
 
-.cafeName {
+
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle{
   font-size: 20px;
   text-transform: uppercase;
+}
+
+.redirectTo {
+  margin-left: 3px;
+  user-select: none;
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid $grey-rainy;
+  outline: 0;
+  highlight-color: transparent;
+}
+
+.arrowBack{
+  position: absolute;
+  font-size: 25px;
+  top: 15px;
+  transform: translateX(-2px);
+  border: none;
 }
 
 .button{
@@ -48,6 +75,21 @@
   &:active {
     background: $grey-tin;
   }
+
+}
+.title{
+
+}
+
+.product{
+  display: flex;
+  justify-content: space-between;
+}
+
+.result{
+  width: 100%;
+  background-color: #282828;
+  padding: 15px;
 }
 
 .submitButton {
@@ -60,27 +102,3 @@
 .placeForButtons {
   height: 150px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

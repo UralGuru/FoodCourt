@@ -1,17 +1,17 @@
 import React from 'react';
 import {NextPage} from "next";
 import Head from "next/head";
-import {Basket} from "@pages-content/basket/basket";
+import {Order} from "@pages-content/basket/order/order";
 
-const BasketPage: NextPage = () => {
+const BasketOrderPage: NextPage = () => {
     return (
         <React.Fragment>
             <Head>
-                <title>Basket</title>
+                <title>Order</title>
             </Head>
-            <Basket />
+            <Order />
         </React.Fragment>
     );
 };
 
-export default BasketPage;
+export default BasketOrderPage;

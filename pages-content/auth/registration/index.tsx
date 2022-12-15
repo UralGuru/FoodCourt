@@ -40,7 +40,7 @@ export const RegisterPageContent: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (user.isLoggedIn) router.push(URLManager.getHomeURL());
+    if (user.isSuccess) router.push(URLManager.getLoginURL());
   }, [user.isSuccess]);
 
   return (
