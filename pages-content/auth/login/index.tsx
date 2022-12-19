@@ -140,7 +140,7 @@ export const LoginPageContent: FC = () => {
             </button>
           </div>
           <div className={styles.regText}>
-            Все еще нет аккаунта? Создай его
+            Все еще нет аккаунта? Создайте его
             <Link href={URLManager.getRegistrationURL()}>
               <a className={styles.redirectTo}>здесь</a>
             </Link>
