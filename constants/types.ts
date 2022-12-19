@@ -59,7 +59,8 @@ export interface CafeItem {
   name: string,
   distance: string,
   avatar: string,
-  address: string
+  address: string,
+  rating: string,
 }
 
 export interface CafeResponse {

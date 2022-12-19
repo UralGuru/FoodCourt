@@ -10,6 +10,9 @@ const register = async (regData: Register) => {
 
 const login = async (logData: Login) => {
   const response = await axios.post(API_URL + 'auth/login', logData);
+  if(response.data.acssessToken) {
+    localStorage.setItem('access-token', response.data.acssessToken);
+  }
   return response.data;
 };
 

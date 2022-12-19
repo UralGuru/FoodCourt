@@ -1,11 +1,16 @@
 import axios from 'axios';
 
-const at =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpenphdHVsbGludUBnbWFpbC5jb21teXlvb29vd3IiLCJzdWIiOiIwYzgyNzg0My0wMmY0LTRmYjAtOGU2ZS1lNzhjZDQyZmUzN2IiLCJyb2xlcyI6InVzZXIiLCJleHAiOjE2NzM0MjQ2NTAsImlzcyI6IkZvb2Rjb3VydEFwcC5BUEkiLCJhdWQiOiJGb29kY291cnRBcHAuQ2xpZW50In0.l3XtneOK77b0Ct282z6T0B7_w91GRk2L8b-SYW_Thzk';
+// const accessToken = localStorage.getItem('access-token');
+// const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpenphdHVsbGludUBnbWFpbC5jb21tdHRyIiwic3ViIjoiZjFmNjk3OWQtMGIwYy00YWI0LThlYWMtODU4NjQ2MjdlMTMxIiwicm9sZXMiOiJ1c2VyIiwiZXhwIjoxNjc0MDM0NTQwLCJpc3MiOiJGb29kY291cnRBcHAuQVBJIiwiYXVkIjoiRm9vZGNvdXJ0QXBwLkNsaWVudCJ9.9PO2xYOTGdOcCQoUXR0dbphY29vC97Qacw1H1FIwhLc'
+let accessToken = '';
+if (typeof window !== 'undefined') {
+  accessToken = localStorage.getItem('access-token') ?? "gggg";
+  console.log(accessToken)
+}
 
 const instance = axios.create({
   baseURL: 'http://food-court.tk/api/v1.0/',
-  headers: { Authorization: `Bearer ${at}` },
+  headers: { Authorization: `Bearer ${accessToken}` },
   params: {
     name: '',
     latitude: 53.56027514225735,

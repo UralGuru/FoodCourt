@@ -41,15 +41,15 @@ export function CafeItemPageContent(): JSX.Element {
                 </div>
 
                 {eventCafe && cafeItemProducts.map(product => <CafeItemProductsCard key={product.id}
-                                                                        id={product.id}
-                                                                        cafeId={product.cafeId}
-                                                                        avatar={product.avatar}
-                                                                        name={product.name}
-                                                                        description={product.description}
-                                                                        price={product.price}
-                                                                        productTypes={product.productTypes}
-                                                                        productVariants={product.productTypes}
-                                                                        status={product.status}
+                                                                                    id={product.id}
+                                                                                    cafeId={product.cafeId}
+                                                                                    avatar={product.avatar}
+                                                                                    name={product.name}
+                                                                                    description={product.description}
+                                                                                    price={product.price}
+                                                                                    productTypes={product.productTypes}
+                                                                                    productVariants={product.productTypes}
+                                                                                    status={product.status}
                 />)}
 
             </div>

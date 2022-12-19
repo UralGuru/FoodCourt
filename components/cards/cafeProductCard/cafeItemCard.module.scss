@@ -47,10 +47,23 @@
   -webkit-box-orient: vertical;
 }
 
+.productFooter{
+  display: flex;
+  justify-content: space-between;
+}
+
 .productItemPrice{
   margin: 5px 0;
   width: 80px;
   text-align: center;
   border: 1px solid gray;
   border-radius: 10px;
+  min-width: 100px;
+  user-select: none;
 }
+
+.productItemAddTrue{
+  background-color: red;
+}
+
+

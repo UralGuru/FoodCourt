@@ -10,6 +10,13 @@ import styles from './home.module.scss';
 import { URLManager } from '@shared/url-manager';
 
 export const HomePageContent: FC = () => {
+
+  // if (typeof window !== 'undefined') {
+  //   const userI = localStorage.getItem('access-token');
+  //   console.log(userI)
+  // }
+
+
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth);
@@ -49,6 +56,7 @@ export const HomePageContent: FC = () => {
             distance={cafe.distance}
             avatar={cafe.avatar}
             address={cafe.address}
+            rating={cafe.rating}
           />
         ))}
       </div>

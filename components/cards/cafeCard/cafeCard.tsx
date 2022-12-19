@@ -10,10 +10,10 @@ interface CafeCard {
   distance: string;
   avatar: string;
   address: string;
+  rating: string;
 }
 
 export default function CafeCard(props: CafeCard) {
-  const rating = (Math.floor(Math.random() * (50 - 30 + 1) + 30) / 10).toFixed(1);
   const router = useRouter()
   const id = router.query.id as string
 
@@ -31,7 +31,7 @@ export default function CafeCard(props: CafeCard) {
           <div>{props.distance}</div>
           <div className={styles.rating}>
             <AiFillStar className={styles.ratingStar} />
-            {rating}
+            {props.rating}
           </div>
         </div>
       </div>

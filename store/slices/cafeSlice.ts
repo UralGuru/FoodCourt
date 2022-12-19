@@ -13,6 +13,7 @@ const CAFE_STATE: CafeState = {
             distance: '',
             avatar: '',
             address: '',
+            rating: '',
         },
     ],
     totalCount: 0,
