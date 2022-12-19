@@ -13,7 +13,20 @@ export function History() {
             </div>
 
             <div className={styles.result}>
-                tfyghuijk
+                <div>
+                    <div>Заказ №339</div>
+                    <div>11 декабря 2021 в 20:50</div>
+                </div>
+                <div>
+                    <div>Zakaz 1</div>
+                    <div>Zakaz 2</div>
+                    <div>Zakaz 3</div>
+                </div>
+                <div>
+                    <div>Итого</div>
+                    <div>800 ₽</div>
+                </div>
+                <div>Подробнее</div>
             </div>
         </div>
     </React.Fragment>
