@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime';
 import {NextPage} from "next";
 import Head from "next/head";
 import {useRouter} from "next/router";
-import {CafeItemPageContent} from "@pages-content/cafes/cafeItem";
+import CafeItemPageContent from "@pages-content/cafes/cafeItem";
 
 const CafeCardById: NextPage = () => {
     const router = useRouter()
@@ -14,7 +14,7 @@ const CafeCardById: NextPage = () => {
             <Head>
                 <title>FoodCourt</title>
             </Head>
-            <CafeItemPageContent id={+id}/>
+            <CafeItemPageContent />
         </React.Fragment>
     );
 };

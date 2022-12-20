@@ -3,7 +3,7 @@ import React from "react";
 import cn from "classnames";
 import Link from "next/link";
 import {URLManager} from "@shared/url-manager";
-import {AiOutlineArrowLeft, AiOutlineSearch} from "react-icons/ai";
+import {AiOutlineArrowLeft} from "react-icons/ai";
 
 export function Order() {
     return <React.Fragment>

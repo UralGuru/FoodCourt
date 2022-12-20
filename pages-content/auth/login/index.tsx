@@ -41,8 +41,8 @@ export const LoginPageContent: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (user.accessToken) router.push(URLManager.getHomeURL());
-  }, [user.accessToken]);
+    if (user.isSuccess) router.push(URLManager.getHomeURL());
+  }, [user.isSuccess]);
 
   return (
     <React.Fragment>

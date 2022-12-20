@@ -7,11 +7,10 @@ import {clearCafeProductState, getCafeItemProductsThunk} from "@store/slices/caf
 import Link from "next/link";
 import {URLManager} from '@shared/url-manager';
 import cn from "classnames";
-import {PropsId} from "@constants/types";
 import {useRouter} from "next/router";
+import {withAuth} from "@shared/HOC";
 
-// export function CafeItemPageContent({id}: PropsId): JSX.Element {
-export function CafeItemPageContent(): JSX.Element {
+const CafeItemPageContent = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const cafeItem = useAppSelector((state) => state.cafe)
     const cafeItemProducts = useAppSelector((state) => state.cafe.cafeItemProducts.foundEntities);
@@ -31,11 +30,7 @@ export function CafeItemPageContent(): JSX.Element {
         <React.Fragment>
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <Link href={URLManager.getLoginURL()}>
-                        <a>
-                            <AiOutlineArrowLeft className={cn(styles.arrowBack, styles.redirectTo)}/>
-                        </a>
-                    </Link>
+                    <div></div>
                     <div className={styles.cafeName}>{eventCafe?.name}</div>
                     <div><AiOutlineSearch style={{fontSize: '25'}}/></div>
                 </div>
@@ -56,4 +51,6 @@ export function CafeItemPageContent(): JSX.Element {
 
         </React.Fragment>
     )
-}
+};
+
+export default withAuth(CafeItemPageContent);

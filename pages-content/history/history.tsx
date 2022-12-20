@@ -5,8 +5,9 @@ import {URLManager} from "@shared/url-manager";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import cn from "classnames";
 import HistoryCard from "@components/cards/historyCard/historyCard";
+import {withAuth} from "@shared/HOC";
 
-export function History() {
+const History = () => {
     return <React.Fragment>
         <div className={styles.content}>
             <div className={styles.header}>
@@ -34,4 +35,7 @@ export function History() {
 
         </div>
     </React.Fragment>
-}
+};
+
+export default withAuth(History)
+

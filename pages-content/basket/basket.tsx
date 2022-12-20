@@ -6,10 +6,11 @@ import {useRouter} from "next/router";
 import {URLManager} from "@shared/url-manager";
 import {useAppDispatch, useAppSelector} from "@shared/hooks";
 import {cleanBasketThunk, getBasketThunk, clearBasketState} from "@store/slices/basketSlice";
+import {withAuth} from "@shared/HOC";
 
 
 
-export function Basket() {
+function Basket() {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const basket = useAppSelector((state) => state.basket)
@@ -48,3 +49,5 @@ export function Basket() {
         <div className={styles.placeForButtons}/>
     </React.Fragment>
 }
+
+export default withAuth(Basket)

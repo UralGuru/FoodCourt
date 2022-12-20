@@ -1,25 +1,15 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import { FC, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { clearMessage } from '@store/slices/authSlice';
 import CafeCard from '@components/cards/cafeCard/cafeCard';
 import { getCafesThunk } from '@store/slices/cafeSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './home.module.scss';
-import { URLManager } from '@shared/url-manager';
+import {withAuth} from "@shared/HOC";
 
-export const HomePageContent: FC = () => {
-
-  // if (typeof window !== 'undefined') {
-  //   const userI = localStorage.getItem('access-token');
-  //   console.log(userI)
-  // }
-
-
-  const router = useRouter();
+const HomePageContent: FC = () => {
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.auth);
   const cafes = useAppSelector((state) => state.cafe);
 
   useEffect(() => {
@@ -29,10 +19,6 @@ export const HomePageContent: FC = () => {
   useEffect(() => {
     dispatch(getCafesThunk());
   }, []);
-
-  useLayoutEffect(() => {
-    if (!user.isLoggedIn) router.push(URLManager.getLoginURL());
-  }, [user.isLoggedIn]);
 
   return (
     <React.Fragment>
@@ -64,3 +50,10 @@ export const HomePageContent: FC = () => {
     </React.Fragment>
   );
 };
+
+export default withAuth(HomePageContent);
+
+
+
+
+

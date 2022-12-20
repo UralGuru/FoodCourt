@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-// const accessToken = localStorage.getItem('access-token');
-// const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdpenphdHVsbGludUBnbWFpbC5jb21tdHRyIiwic3ViIjoiZjFmNjk3OWQtMGIwYy00YWI0LThlYWMtODU4NjQ2MjdlMTMxIiwicm9sZXMiOiJ1c2VyIiwiZXhwIjoxNjc0MDM0NTQwLCJpc3MiOiJGb29kY291cnRBcHAuQVBJIiwiYXVkIjoiRm9vZGNvdXJ0QXBwLkNsaWVudCJ9.9PO2xYOTGdOcCQoUXR0dbphY29vC97Qacw1H1FIwhLc'
 let accessToken = '';
 if (typeof window !== 'undefined') {
-  accessToken = localStorage.getItem('access-token') ?? "gggg";
+  accessToken = localStorage.getItem('access-token') ?? "";
 }
 
 const instance = axios.create({

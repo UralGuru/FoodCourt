@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './cafeItemCard.module.scss';
 import {Products} from "@constants/types";
 import cn from "classnames";
@@ -8,11 +8,13 @@ import {useAppDispatch} from "@shared/hooks";
 
 export default function CafeItemCard(props: Products) {
     const [isAdd, setIsAdd] = useState(false);
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
+
     const getProductsFromBasket = () => {
         setIsAdd(!isAdd)
         dispatch(addProductToBasketThunk(props.id))
     }
+
     return (
         <div className={styles.productItem}>
             <div className={styles.productItemImageContainer} style={{backgroundImage: `url(${props.avatar})`}}>

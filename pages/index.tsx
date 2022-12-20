@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import React, {useLayoutEffect} from 'react';
+import React from 'react';
 import 'regenerator-runtime/runtime';
-import { HomePageContent } from '@pages-content/home';
+import  HomePageContent  from '@pages-content/home';
+import {withAuth} from "@shared/HOC";
 
 const HomePage: NextPage = () => {
   return (
