@@ -5,6 +5,7 @@ import axios from 'axios';
 let accessToken = '';
 if (typeof window !== 'undefined') {
   accessToken = localStorage.getItem('access-token') ?? "gggg";
+  // console.log(accessToken)
 }
 
 const instance = axios.create({
@@ -19,19 +20,41 @@ const instance = axios.create({
   },
 });
 
-const getCafes = async () => {
-  const response = await instance.get('/cafes');
+const getBasket = async () => {
+  const response = await instance.get('/basket');
   return response.data;
 };
 
-const getCafeItem = async (id: number) => {
-  const response = await instance.get(`/cafes/${id}/products`);
+const cleanBasket = async () => {
+  const response = await instance.get('/basket');
   return response.data;
 };
 
-const CafeService = {
-  getCafes,
-  getCafeItem
+const patchBasket = async (id: number, count:number, variantId:number) => {
+  const response = await instance.patch(`/basket/${id}`,{
+    count, variantId
+  });
+  return response.data;
 };
 
-export default CafeService;
+const addProductToBasket = async (id: number) => {
+  const response = await instance.put(`/basket`, {
+    id, variantId: 1
+  });
+  return response.data;
+};
+
+const removeProductFromBasket = async (id: number) => {
+  const response = await instance.put(`/basket/${id}`);
+  return response.data;
+};
+
+const BasketService = {
+  getBasket,
+  cleanBasket,
+  patchBasket,
+  addProductToBasket,
+  removeProductFromBasket
+};
+
+export default BasketService;

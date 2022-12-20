@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import { clearMessage, registerThunk } from '@store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import { URLManager } from '@shared/url-manager';
-import { Register } from '@constants/types';
+import { UserRegisterRequest } from '@constants/types';
 import styles from '../auth.module.scss';
 
 export const RegisterPageContent: FC = () => {
@@ -24,7 +24,7 @@ export const RegisterPageContent: FC = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<Register>();
+  } = useForm<UserRegisterRequest>();
 
   const typeOfPassword = isShowPassword ? 'text' : 'password';
   const authMessage = user.isSuccess ? 'Успешная регистрация' : user.message;

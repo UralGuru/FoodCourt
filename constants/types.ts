@@ -1,15 +1,17 @@
-import {number} from "prop-types";
-
-export interface Login {
+export interface UserLoginRequest {
   email: string;
   password: string;
 }
 
-export interface Register {
+export interface UserRegisterRequest {
   name: string;
   phone: string;
   email: string;
   password: string;
+}
+
+export interface RefreshTokenRequest {
+  refreshToken: string;
 }
 
 export interface AuthState {
@@ -76,3 +78,45 @@ export interface CafeState {
 }
 
 
+
+
+
+export interface BasketResponse {
+  totalPrice: number;
+  totalProductsCount: number;
+  status: "Empty" | "NotEmpty";
+  cafesBaskets: CafeBasket[];
+}
+
+export interface CafeBasket {
+  id: number;
+  name: string;
+  products: BasketProductResponse[];
+}
+
+export interface BasketProductResponse{
+  id: number,
+  name: string,
+  description: string,
+  avatar: string,
+  status: "Available" | "NotAvailable" | "Soon" | "Sale",
+  price: number,
+  proteins: number,
+  fats: number,
+  carbohydrates: number,
+  weight: number,
+  kcal: number,
+  cafeId: number,
+  productVariants: {
+    id: number,
+    type: string
+  },
+  productTypes: [
+    {
+      id: number,
+      type: string
+    }
+  ],
+  productId: number,
+  count: number
+}

@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { clearMessage, loginThunk } from '@store/slices/authSlice';
-import { Login } from '@constants/types';
+import { UserLoginRequest } from '@constants/types';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import { URLManager } from '@shared/url-manager';
 import styles from '../auth.module.scss';
@@ -23,7 +23,7 @@ export const LoginPageContent: FC = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<Login>();
+  } = useForm<UserLoginRequest>();
 
   const typeOfPassword = isShowPassword ? 'text' : 'password';
   const authMessage = user.isSuccess

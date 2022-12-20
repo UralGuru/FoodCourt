@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { AuthState, Login, Register } from '@constants/types';
+import { AuthState, UserLoginRequest, UserRegisterRequest } from '@constants/types';
 import AuthService from 'services/auth.service';
 
 const INITIAL_STATE: AuthState = {
@@ -14,7 +14,7 @@ const INITIAL_STATE: AuthState = {
 
 export const loginThunk = createAsyncThunk(
   'auth/login',
-  async (loginSliceData: Login, thunkAPI) => {
+  async (loginSliceData: UserLoginRequest, thunkAPI) => {
     try {
       const data = await AuthService.login(loginSliceData);
       return { user: data };
@@ -29,7 +29,7 @@ export const loginThunk = createAsyncThunk(
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
-  async (loginSliceData: Register, thunkAPI) => {
+  async (loginSliceData: UserRegisterRequest, thunkAPI) => {
     try {
       const data = await AuthService.register(loginSliceData);
       return { user: data };

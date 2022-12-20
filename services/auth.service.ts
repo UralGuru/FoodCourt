@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { Register, Login } from '@constants/types';
+import { UserRegisterRequest, UserLoginRequest } from '@constants/types';
 
 const API_URL = 'http://food-court.tk/api/v1.0/';
 
-const register = async (regData: Register) => {
+const register = async (regData: UserRegisterRequest) => {
   const response = await axios.post(API_URL + 'auth/registration', regData);
   return response.data;
 };
 
-const login = async (logData: Login) => {
+const login = async (logData: UserLoginRequest) => {
   const response = await axios.post(API_URL + 'auth/login', logData);
   if(response.data.acssessToken) {
     localStorage.setItem('access-token', response.data.acssessToken);

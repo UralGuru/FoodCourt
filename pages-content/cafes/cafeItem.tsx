@@ -17,7 +17,7 @@ export function CafeItemPageContent(): JSX.Element {
     const cafeItemProducts = useAppSelector((state) => state.cafe.cafeItemProducts.foundEntities);
     const router = useRouter()
     const id = +(router.query.id as string);
-    const eventCafe = cafeItem.foundEntities.filter(p => p.id === id)[0];
+    const eventCafe = cafeItem?.foundEntities.filter(p => p.id === id)[0];
 
     useLayoutEffect(() => {
         dispatch(clearCafeProductState())
