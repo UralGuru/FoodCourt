@@ -5,17 +5,24 @@ import cn from "classnames";
 import {useRouter} from "next/router";
 import {URLManager} from "@shared/url-manager";
 import {useAppDispatch, useAppSelector} from "@shared/hooks";
-import {getBasketThunk} from "@store/slices/basketSlice";
+import {cleanBasketThunk, getBasketThunk, clearBasketState} from "@store/slices/basketSlice";
+
+
 
 export function Basket() {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const basket = useAppSelector((state) => state.basket)
-    console.log(basket)
 
     useEffect(() => {
         dispatch(getBasketThunk())
     }, [])
+
+    const clearBasket = () => {
+        dispatch(cleanBasketThunk());
+        dispatch(clearBasketState());
+        console.log("Basket cleaned");
+    }
 
 
     return <React.Fragment>
@@ -23,7 +30,7 @@ export function Basket() {
             <div className={styles.header}>
                 <div className={styles.cafeName}>КОРЗИНА</div>
             </div>
-            {basket.cafesBaskets.map(cafe =>
+            {basket?.cafesBaskets?.map(cafe =>
                 <BasketCard key={cafe.id}
                             id={cafe.id}
                             name={cafe.name}
@@ -31,8 +38,9 @@ export function Basket() {
             )}
         </div>
 
+        {basket.totalProductsCount ? <div className={cn(styles.button, styles.clearButton)} onClick={clearBasket}>Очистить корзину</div>
+            : <div className={styles.emptyBasketText}>Корзина пуста</div>}
 
-        <div className={cn(styles.button, styles.clearButton)}>Очистить корзину</div>
         <div className={cn(styles.button, styles.submitButton)}
              onClick={() => router.push(URLManager.getOrderURL())}>Оформить заказ
         </div>

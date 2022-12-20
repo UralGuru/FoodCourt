@@ -56,10 +56,17 @@
   transform: translate(-50%);
   bottom: 60px;
 }
+.emptyBasketText{
+  display: flex;
+  justify-content: center;
+  line-height: 300px;
+  color: grey;
+}
 
 .placeForButtons {
   height: 150px;
 }
+
 
 
 

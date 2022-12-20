@@ -26,7 +26,7 @@ const getBasket = async () => {
 };
 
 const cleanBasket = async () => {
-  const response = await instance.get('/basket');
+  const response = await instance.delete('/basket');
   return response.data;
 };
 
