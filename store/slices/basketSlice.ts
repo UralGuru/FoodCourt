@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import BasketService from '../../services/basket.service';
-import {BasketResponse} from "@constants/types";
+import {BasketResponse, patchBasketThunk} from "@constants/types";
+import {number} from "prop-types";
 
 const BASKET_STATE: BasketResponse = {
     totalPrice: 0,
@@ -46,34 +47,45 @@ const BASKET_STATE: BasketResponse = {
 export const getBasketThunk = createAsyncThunk<BasketResponse, undefined, { rejectValue: string }>
 ('basket/getBasket',
     async function (_, {rejectWithValue}) {
-    try {
-        const response = await BasketService.getBasket();
-        console.log('Thunk',response)
-        return response;
-    } catch {
-        return rejectWithValue('Server Error!');
-    }
-});
+        try {
+            const response = await BasketService.getBasket();
+            return response;
+        } catch {
+            return rejectWithValue('Server Error!');
+        }
+    });
 
 export const cleanBasketThunk = createAsyncThunk<undefined, undefined, { rejectValue: string }>
 ('basket/cleanBasket',
     async function (_, {rejectWithValue}) {
-    try {
-        await BasketService.cleanBasket();
-        console.log('basket cleaaan')
-    } catch {
-        return rejectWithValue('Server Error!');
-    }
-});
+        try {
+            await BasketService.cleanBasket();
+        } catch {
+            return rejectWithValue('Server Error!');
+        }
+    });
 
 export const addProductToBasketThunk = createAsyncThunk
 ('basket/addProduct',
     async function (id: number, {rejectWithValue}) {
         try {
             const response = await BasketService.addProductToBasket(id);
-            console.log(response)
             return response;
         } catch {
+            return rejectWithValue('Server Error!');
+        }
+    });
+
+export const changeCountProductInBasketThunk = createAsyncThunk
+('basket/changeCountProduct',
+    // async function (product:patchBasketThunk,  {rejectWithValue}) {
+    async function (product:number[],  {rejectWithValue}) {
+        try {
+            console.log(product)
+            const response = await BasketService.changeCountProductInBasket(product[0], product[1]);
+            return response;
+        } catch {
+            console.log(product)
             return rejectWithValue('Server Error!');
         }
     });
@@ -82,7 +94,7 @@ const basketSlice = createSlice({
     name: 'basket',
     initialState: BASKET_STATE,
     reducers: {
-        clearBasketState: ()=>BASKET_STATE
+        clearBasketState: () => BASKET_STATE
     },
     extraReducers: (builder) => {
         builder
@@ -93,13 +105,13 @@ const basketSlice = createSlice({
                 state.cafesBaskets = action.payload.cafesBaskets;
             })
             .addCase(getBasketThunk.rejected, (e) => console.log(e))
-            .addCase(cleanBasketThunk.fulfilled, (state, action) => {
-                // state = BASKET_STATE
-                console.log('cleanBasketThunk')
+            .addCase(cleanBasketThunk.fulfilled, (state, action) => {})
+            .addCase(addProductToBasketThunk.fulfilled, (state, action) => {
+
             })
     },
 });
 
 const {actions} = basketSlice;
-export const { clearBasketState } = actions;
+export const {clearBasketState} = actions;
 export default basketSlice.reducer;

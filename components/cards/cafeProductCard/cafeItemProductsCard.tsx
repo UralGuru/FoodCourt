@@ -7,11 +7,9 @@ import {useAppDispatch} from "@shared/hooks";
 
 
 export default function CafeItemCard(props: Products) {
-    const [isAdd, setIsAdd] = useState(false);
     const dispatch = useAppDispatch();
 
     const getProductsFromBasket = () => {
-        setIsAdd(!isAdd)
         dispatch(addProductToBasketThunk(props.id))
     }
 
@@ -24,8 +22,7 @@ export default function CafeItemCard(props: Products) {
                 <div className={styles.productItemDescriptionContent}>{props.description}</div>
                 <div className={styles.productFooter}>
                     <div className={styles.productItemPrice}>{props.price} ₽</div>
-                    {!isAdd && <div className={cn(styles.productItemPrice, styles.productItemAddTrue)} onClick={getProductsFromBasket}>добавить</div>}
-                    {isAdd && <div className={cn(styles.productItemPrice, styles.productItemAddFalse)} onClick={()=>setIsAdd(!isAdd)}>удалить</div>}
+                    <div className={cn(styles.productItemPrice, styles.productItemAddTrue)} onClick={getProductsFromBasket}>добавить</div>
                 </div>
             </div>
         </div>

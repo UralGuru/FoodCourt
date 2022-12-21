@@ -5,7 +5,6 @@ import axios from 'axios';
 let accessToken = '';
 if (typeof window !== 'undefined') {
   accessToken = localStorage.getItem('access-token') ?? "gggg";
-  // console.log(accessToken)
 }
 
 const instance = axios.create({
@@ -30,9 +29,10 @@ const cleanBasket = async () => {
   return response.data;
 };
 
-const patchBasket = async (id: number, count:number, variantId:number) => {
+const changeCountProductInBasket = async (id: number, count:number) => {
   const response = await instance.patch(`/basket/${id}`,{
-    count, variantId
+    count,
+    variantId:1
   });
   return response.data;
 };
@@ -52,7 +52,7 @@ const removeProductFromBasket = async (id: number) => {
 const BasketService = {
   getBasket,
   cleanBasket,
-  patchBasket,
+  changeCountProductInBasket,
   addProductToBasket,
   removeProductFromBasket
 };

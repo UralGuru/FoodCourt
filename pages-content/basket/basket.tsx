@@ -22,7 +22,6 @@ function Basket() {
     const clearBasket = () => {
         dispatch(cleanBasketThunk());
         dispatch(clearBasketState());
-        console.log("Basket cleaned");
     }
 
 

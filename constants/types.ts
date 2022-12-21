@@ -77,10 +77,6 @@ export interface CafeState {
 
 }
 
-
-
-
-
 export interface BasketResponse {
   totalPrice: number;
   totalProductsCount: number;
@@ -92,6 +88,11 @@ export interface CafeBasket {
   id: number;
   name: string;
   products: BasketProductResponse[];
+}
+
+export interface patchBasketThunk{
+  id: number;
+  count: number
 }
 
 export interface BasketProductResponse{

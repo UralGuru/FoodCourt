@@ -1,9 +1,17 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./basketProductCard.module.scss";
-import {BasketProductResponse} from "@constants/types";
+import {BasketProductResponse, patchBasketThunk} from "@constants/types";
+import {useAppDispatch} from "@shared/hooks";
+import {changeCountProductInBasketThunk} from "@store/slices/basketSlice";
+import {number} from "prop-types";
 
 export function BasketProductCard(props: BasketProductResponse) {
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(props.count);
+    const dispatch = useAppDispatch();
+
+    useEffect(()=>{
+        dispatch(changeCountProductInBasketThunk([props.id, count]))
+    }, [count])
 
     return(
         <div className={styles.cafeProductItem}>
@@ -18,7 +26,7 @@ export function BasketProductCard(props: BasketProductResponse) {
                     <div className={styles.cafeProductPrice}>{props.price} ₽</div>
                     <div className={styles.cafeProductCounter}>
                         <div onClick={()=>setCount(count-1)}>-</div>
-                        <div>{props.count}</div>
+                        <div>{count}</div>
                         <div onClick={()=>setCount(count+1)}>+</div>
                     </div>
                 </div>
