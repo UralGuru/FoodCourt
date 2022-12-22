@@ -1,8 +1,8 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
-import {useRouter} from "next/router";
+import { useRouter } from 'next/router';
 import styles from './cafeCard.module.scss';
-import {URLManager} from "@shared/url-manager";
+import { URLManager } from '@shared/url-manager';
 
 interface CafeCard {
   id: number;
@@ -14,11 +14,11 @@ interface CafeCard {
 }
 
 export default function CafeCard(props: CafeCard) {
-  const router = useRouter()
-  const id = router.query.id as string
+  const router = useRouter();
+  const id = router.query.id as string;
 
-  const pushCafeItemPage = () => router.push(URLManager.getCafeItemURL(props.id))
-
+  const pushCafeItemPage = () =>
+    router.push(URLManager.getCafeItemURL(props.id));
 
   return (
     <div className={styles.cafeList} onClick={pushCafeItemPage}>

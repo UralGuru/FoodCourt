@@ -25,44 +25,43 @@ export interface AuthState {
 }
 
 export interface PropsId {
-  id: number
+  id: number;
 }
 
 export interface Products {
-  id: 0,
-  name: "string",
-  description: "string",
-  avatar: "string",
-  status: "Available",
-  price: 0,
-  cafeId: 0,
+  id: 0;
+  name: 'string';
+  description: 'string';
+  avatar: 'string';
+  status: 'Available';
+  price: 0;
+  cafeId: 0;
   productVariants: [
     {
-      id: 0,
-      type: "string"
+      id: 0;
+      type: 'string';
     }
-  ],
+  ];
   productTypes: [
     {
-      id: 0,
-      type: "string"
+      id: 0;
+      type: 'string';
     }
-  ]
+  ];
 }
 
 export interface CafeItemProductsResponse {
-  foundEntities: Products[],
-  totalCount: 0
+  foundEntities: Products[];
+  totalCount: 0;
 }
 
-
 export interface CafeItem {
-  id: number,
-  name: string,
-  distance: string,
-  avatar: string,
-  address: string,
-  rating: string,
+  id: number;
+  name: string;
+  distance: string;
+  avatar: string;
+  address: string;
+  rating: string;
 }
 
 export interface CafeResponse {
@@ -73,14 +72,13 @@ export interface CafeResponse {
 export interface CafeState {
   foundEntities: CafeItem[];
   totalCount: 0;
-  cafeItemProducts: CafeItemProductsResponse
-
+  cafeItemProducts: CafeItemProductsResponse;
 }
 
 export interface BasketResponse {
   totalPrice: number;
   totalProductsCount: number;
-  status: "Empty" | "NotEmpty";
+  status: 'Empty' | 'NotEmpty';
   cafesBaskets: CafeBasket[];
 }
 
@@ -90,34 +88,34 @@ export interface CafeBasket {
   products: BasketProductResponse[];
 }
 
-export interface patchBasketThunk{
+export interface patchBasketThunk {
   id: number;
-  count: number
+  count: number;
 }
 
-export interface BasketProductResponse{
-  id: number,
-  name: string,
-  description: string,
-  avatar: string,
-  status: "Available" | "NotAvailable" | "Soon" | "Sale",
-  price: number,
-  proteins: number,
-  fats: number,
-  carbohydrates: number,
-  weight: number,
-  kcal: number,
-  cafeId: number,
+export interface BasketProductResponse {
+  id: number;
+  name: string;
+  description: string;
+  avatar: string;
+  status: 'Available' | 'NotAvailable' | 'Soon' | 'Sale';
+  price: number;
+  proteins: number;
+  fats: number;
+  carbohydrates: number;
+  weight: number;
+  kcal: number;
+  cafeId: number;
   productVariants: {
-    id: number,
-    type: string
-  },
+    id: number;
+    type: string;
+  };
   productTypes: [
     {
-      id: number,
-      type: string
+      id: number;
+      type: string;
     }
-  ],
-  productId: number,
-  count: number
+  ];
+  productId: number;
+  count: number;
 }

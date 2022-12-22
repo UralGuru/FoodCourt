@@ -45,7 +45,7 @@ const addProductToBasket = async (id: number) => {
 };
 
 const removeProductFromBasket = async (id: number) => {
-  const response = await instance.put(`/basket/${id}`);
+  const response = await instance.delete(`/basket/${id}`);
   return response.data;
 };
 
