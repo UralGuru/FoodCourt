@@ -1,20 +1,20 @@
 import styles from './order.module.scss';
-import React from "react";
+import React, {useEffect} from "react";
 import cn from "classnames";
-import Link from "next/link";
-import {URLManager} from "@shared/url-manager";
-import {AiOutlineArrowLeft} from "react-icons/ai";
 import {OrderProductCard} from "@components/cards/orderProductCard/orderProductCard";
+import {useAppSelector} from "@shared/hooks";
 
 export function Order() {
+    const order = useAppSelector((state) => state.order.orderItem)
+
     return <React.Fragment>
         <div className={styles.content}>
             <div className={styles.header}>
                 <div/>
-                <div className={styles.headerTitle}>Заказ № 381</div>
+                <div className={styles.headerTitle}>Заказ № {order.id}</div>
                 <div></div>
             </div>
-            <div className={styles.title}>Большие тарелки</div>
+            <div className={styles.title}>{order.cafeName}</div>
 
             <OrderProductCard/>
 
@@ -23,7 +23,7 @@ export function Order() {
                     <div>Статус</div><div>в процессе</div>
                 </div>
                 <div className={styles.resultPrice}>
-                    <div>Итого</div><div>1700 ₽</div>
+                    <div>Итого</div><div>{order.totalPrice} ₽</div>
                 </div>
             </div>
 

@@ -7,8 +7,7 @@ import {URLManager} from "@shared/url-manager";
 import {useAppDispatch, useAppSelector} from "@shared/hooks";
 import {cleanBasketThunk, getBasketThunk, clearBasketState} from "@store/slices/basketSlice";
 import {withAuth} from "@shared/HOC";
-
-
+import {createOrderThunk} from "@store/slices/orderSlice";
 
 function Basket() {
     const router = useRouter();
@@ -22,6 +21,11 @@ function Basket() {
     const clearBasket = () => {
         dispatch(cleanBasketThunk());
         dispatch(clearBasketState());
+    }
+
+    const handleProducts = () => {
+        router.push(URLManager.getHistoryURL())
+        dispatch(createOrderThunk())
     }
 
 
@@ -42,7 +46,7 @@ function Basket() {
             : <div className={styles.emptyBasketText}>Корзина пуста</div>}
 
         <div className={cn(styles.button, styles.submitButton)}
-             onClick={() => router.push(URLManager.getHistoryURL())}>Оформить заказ
+             onClick={handleProducts}>Оформить заказ
         </div>
 
         <div className={styles.placeForButtons}/>

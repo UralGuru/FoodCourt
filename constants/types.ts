@@ -136,6 +136,7 @@ export interface OrderResponse {
   creationTime: string;
   comment: string;
   cafeId: number;
+  cafeName: string;
 }
 
 export enum OrderStatus {

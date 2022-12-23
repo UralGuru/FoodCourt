@@ -11,6 +11,7 @@ const ORDER_STATE: OrderState = {
         totalPrice: 0,
         creationTime: '',
         comment: '',
+        cafeName: '',
         cafeId: 0,
     }
 };
@@ -20,7 +21,7 @@ export const createOrderThunk = createAsyncThunk<OrderResponse, undefined, { rej
 ('basket/getOrders',
     async function (_, {rejectWithValue}) {
         try {
-            const response = await OrderService.getOrders();
+            const response = await OrderService.createOrder();
             return response;
         } catch {
             return rejectWithValue('Server Error!');
@@ -32,6 +33,7 @@ export const getOrderThunk = createAsyncThunk<SearchResponseOfOrderResponse>
     async function (_, {rejectWithValue}) {
         try {
             const response = await OrderService.getOrders();
+            console.log(response)
             return response;
         } catch {
             return rejectWithValue('Server Error!');
@@ -60,7 +62,10 @@ const orderSlice = createSlice({
                 state.foundEntities = action.payload.foundEntities;
             })
             .addCase(getItemOrderThunk.fulfilled, (state, action) => {
-                state.orderItem = action.payload;
+                // state.orderItem = action.payload;
+                // state.totalCount;
+                // state.foundEntities;
+                console.log('i am here')
             })
             },
 

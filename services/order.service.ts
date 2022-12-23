@@ -29,7 +29,7 @@ const getOrders = async () => {
 
 
 const gerItemOrder = async (id: number) => {
-  const response = await instance.get(`/basket/${id}`);
+  const response = await instance.get(`/orders/${id}`);
   return response.data;
 };
 
