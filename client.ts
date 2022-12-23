@@ -1718,12 +1718,12 @@ export interface OrderResponse {
 }
 
 export enum OrderStatus {
-  Created = 'Created',
-  InQueue = 'InQueue',
-  InWork = 'InWork',
-  Ready = 'Ready',
-  Issued = 'Issued',
-  Cancelled = 'Cancelled',
+  Created = 'Created',      // создано
+  InQueue = 'InQueue',      // в очереди
+  InWork = 'InWork',        // в работе
+  Ready = 'Ready',          // готов
+  Issued = 'Issued',        // получен
+  Cancelled = 'Cancelled',  //отменен
 }
 
 // @ts-ignore

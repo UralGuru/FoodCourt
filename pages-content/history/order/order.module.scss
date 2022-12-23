@@ -1,4 +1,4 @@
-@import "/styles/colors";
+@import "../../../styles/colors";
 
 
 .content {
@@ -71,6 +71,7 @@
 
 }
 .title{
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -90,9 +91,10 @@
 .resultPrice{
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid grey;
+}
+
+.footer{
   margin-top: 10px;
-  padding-top: 10px;
 }
 
 .submitButton {
@@ -105,3 +107,13 @@
 .placeForButtons {
   height: 150px;
 }
+
+
+
+
+
+
+
+
+
+

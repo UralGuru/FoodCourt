@@ -12,8 +12,8 @@ const instance = axios.create({
   headers: { Authorization: `Bearer ${accessToken}` },
   params: {
     name: '',
-    latitude: 53.56027514225735,
-    longitude: 56.4671276578133,
+    latitude: 56.83791589668633,
+    longitude: 60.66038399431736,
     skip: 0,
     take: 10,
   },

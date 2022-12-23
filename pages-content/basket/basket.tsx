@@ -42,7 +42,7 @@ function Basket() {
             : <div className={styles.emptyBasketText}>Корзина пуста</div>}
 
         <div className={cn(styles.button, styles.submitButton)}
-             onClick={() => router.push(URLManager.getOrderURL())}>Оформить заказ
+             onClick={() => router.push(URLManager.getHistoryURL())}>Оформить заказ
         </div>
 
         <div className={styles.placeForButtons}/>
