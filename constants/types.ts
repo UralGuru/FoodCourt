@@ -119,3 +119,30 @@ export interface BasketProductResponse {
   productId: number;
   count: number;
 }
+
+export interface OrderState extends SearchResponseOfOrderResponse {
+  orderItem: OrderResponse
+}
+
+export interface SearchResponseOfOrderResponse {
+  foundEntities: OrderResponse[];
+  totalCount: number;
+}
+
+export interface OrderResponse {
+  id: number;
+  status: OrderStatus;
+  totalPrice: number;
+  creationTime: string;
+  comment: string;
+  cafeId: number;
+}
+
+export enum OrderStatus {
+  Created = 'Created',      // создано
+  InQueue = 'InQueue',      // в очереди
+  InWork = 'InWork',        // в работе
+  Ready = 'Ready',          // готов
+  Issued = 'Issued',        // получен
+  Cancelled = 'Cancelled',  // отменен
+}

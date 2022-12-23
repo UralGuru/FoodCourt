@@ -22,7 +22,7 @@ const createOrder = async () => {
   return response.data;
 };
 
-const gerOrders = async () => {
+const getOrders = async () => {
   const response = await instance.get('/orders');
   return response.data;
 };
@@ -35,7 +35,7 @@ const gerItemOrder = async (id: number) => {
 
 const OrderService = {
   createOrder,
-  gerOrders,
+  getOrders,
   gerItemOrder,
 };
 
