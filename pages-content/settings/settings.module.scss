@@ -1,0 +1,56 @@
+@import "/styles/colors";
+
+.content {
+  width: 90%;
+  margin: 15px auto 0;
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerName {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+
+.wrapper{
+  height: 50px;
+  background-color: $grey-content;
+  border-radius: 10px;
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@ class URLManagerStore {
   public getSettingsURL() {return `/settings`}
   public getHistoryURL() {return `/history`}
   public getProfileURL() {return `/profile`}
+  public getRulesURL() {return `/settings/rules`}
 }
 
 const URLManager = new URLManagerStore();
