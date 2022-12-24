@@ -1,68 +1,30 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {OrderResponse, OrderState, OrderStatus, SearchResponseOfOrderResponse} from "@constants/types";
-import OrderService from "../../services/order.service";
+import ProfileService from "../../services/profile.service";
 
-const ORDER_STATE: OrderState = {
-    totalCount: 0,
-    foundEntities: [],
-    orderItem: {
-        id: 0,
-        status: OrderStatus.InWork,
-        totalPrice: 0,
-        creationTime: '',
-        comment: '',
-        cafeName: '',
-        cafeId: 0,
-        products: []
-    }
+const PROFILE_STATE = {
+    name: '',
+    email: ''
 };
 
-
-export const createOrderThunk = createAsyncThunk<OrderResponse, undefined, { rejectValue: string }>
-('basket/getOrders',
-    async function (_, {rejectWithValue}) {
+export const getProfileThunk = createAsyncThunk
+('profile/getProfile',
+    async function (_,  {rejectWithValue}) {
         try {
-            const response = await OrderService.createOrder();
-            return response;
-        } catch {
-            return rejectWithValue('Server Error!');
-        }
-    });
-
-export const getOrderThunk = createAsyncThunk<SearchResponseOfOrderResponse>
-('order/getOrders',
-    async function (_, {rejectWithValue}) {
-        try {
-            const response = await OrderService.getOrders();
-            return response;
-        } catch {
-            return rejectWithValue('Server Error!');
-        }
-    });
-
-export const getItemOrderThunk = createAsyncThunk
-('order/getItemOrder',
-    async function (id:number,  {rejectWithValue}) {
-        try {
-            const response = await OrderService.gerItemOrder(id);
-            return response;
+            return await ProfileService.getProfile();
         } catch {
             return rejectWithValue('Server Error!');
         }
     });
 
 const orderSlice = createSlice({
-    name: 'order',
-    initialState: ORDER_STATE,
+    name: 'profile',
+    initialState: PROFILE_STATE,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getOrderThunk.fulfilled, (state, action) => {
-                state.totalCount = action.payload.totalCount;
-                state.foundEntities = action.payload.foundEntities;
-            })
-            .addCase(getItemOrderThunk.fulfilled, (state, action) => {
-                state.orderItem = action.payload;
+            .addCase(getProfileThunk.fulfilled, (state, action) => {
+                state.name = action.payload.name;
+                state.email = action.payload.email;
             })
             },
 

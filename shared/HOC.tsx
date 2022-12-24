@@ -1,5 +1,6 @@
 import {useRouter} from "next/router";
 import React, {FC, useEffect, useState} from "react";
+import {URLManager} from "@shared/url-manager";
 
 export const withAuth = (Component: FC) => {
     const AuthenticatedComponent = () => {
@@ -14,7 +15,8 @@ export const withAuth = (Component: FC) => {
                     accessToken = localStorage.getItem('access-token') ?? "";
                 }
                 if (!accessToken) {
-                    router.push('/auth/login');
+                    // router.push('/auth/login');
+                    router.push(URLManager.getLoginURL());
                 } else {
                     setData(!!accessToken);
                 }

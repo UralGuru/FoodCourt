@@ -12,60 +12,38 @@
   align-items: center;
 }
 
-.cafeName {
+.headerName {
   font-size: 20px;
   text-transform: uppercase;
 }
 
-.button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.nameEmail{
+  height: 100px;
+  background-color: $grey-content;
   border-radius: 10px;
-  background-color: $red-active-rampage;
-  font-size: 20px;
-  font-weight: 600;
-  user-select: none;
-  width: 100%;
-  max-width: 400px;
-  height: 40px;
+  margin-top: 30px;
 
-  margin: 0 auto;
-
-  &:active {
-    user-select: none;
-    outline: 0;
-    background: $red-disable-gory;
-    -webkit-tap-highlight-color: transparent;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.clearButton{
+.uName{
+  font-size: 30px;
+}
+
+.wrapper{
+  height: 50px;
+  background-color: $grey-content;
+  border-radius: 10px;
   margin-top: 20px;
-  background-color: $bg-young-night;
-  border: 1px solid $grey-tin;
-  &:active {
-    background: $grey-tin;
-  }
-}
 
-.submitButton {
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%);
-  bottom: 60px;
-}
-.emptyBasketText{
   display: flex;
   justify-content: center;
-  line-height: 300px;
-  color: grey;
+  align-items: center;
 }
 
-.placeForButtons {
-  height: 150px;
-}
 
 
 

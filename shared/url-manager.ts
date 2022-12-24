@@ -7,6 +7,7 @@ class URLManagerStore {
   public getOrderURL() {return `history/order`}
   public getSettingsURL() {return `/settings`}
   public getHistoryURL() {return `/history`}
+  public getProfileURL() {return `/profile`}
 }
 
 const URLManager = new URLManagerStore();

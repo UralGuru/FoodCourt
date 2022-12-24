@@ -31,9 +31,9 @@ export const LoginPageContent: FC = () => {
     : 'Неверный логин или пароль';
 
   // Handlers
-  const handlerFormSubmit = handleSubmit((formValue) =>
-    dispatch(loginThunk(formValue))
-  );
+  const handlerFormSubmit = handleSubmit((formValue) =>{
+    dispatch(loginThunk(formValue));
+});
 
   // Events
   useEffect(() => {

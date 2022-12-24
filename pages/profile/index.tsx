@@ -2,14 +2,15 @@ import React from 'react';
 import {NextPage} from "next";
 import Head from "next/head";
 import Basket from "@pages-content/basket/basket";
+import Profile from "@pages-content/profile/profile";
 
 const BasketPage: NextPage = () => {
     return (
         <React.Fragment>
             <Head>
-                <title>Basket</title>
+                <title>Profile</title>
             </Head>
-            <Basket />
+            <Profile />
         </React.Fragment>
     );
 };

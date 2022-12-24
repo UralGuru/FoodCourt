@@ -27,6 +27,7 @@ const History = () => {
                                                         comment={o.comment}
                                                         totalPrice={o.totalPrice}
                                                         cafeName={o.cafeName}
+                                                        products={o.products}
             />)}
 
 

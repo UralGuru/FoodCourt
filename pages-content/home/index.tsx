@@ -7,8 +7,11 @@ import { getCafesThunk } from '@store/slices/cafeSlice';
 import { useAppDispatch, useAppSelector } from '@shared/hooks';
 import styles from './home.module.scss';
 import {withAuth} from "@shared/HOC";
+import {useRouter} from "next/router";
+import {URLManager} from "@shared/url-manager";
 
 const HomePageContent: FC = () => {
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const cafes = useAppSelector((state) => state.cafe);
 
@@ -28,7 +31,7 @@ const HomePageContent: FC = () => {
             <div className={styles.userName}>Урал</div>
             <div>Доброго времени суток</div>
           </div>
-          <div className={styles.userIcon}>У</div>
+          <div className={styles.userIcon} onClick={()=>router.push(URLManager.getProfileURL())}>У</div>
         </div>
         <div className={styles.searchContent}>
           <AiOutlineSearch className={styles.searchIcon} />

@@ -1,58 +1,38 @@
 import React, {useEffect} from "react";
-import styles from "./basket.module.scss"
-import {BasketCard} from "@components/cards/basketCard/basketCard";
-import cn from "classnames";
-import {useRouter} from "next/router";
-import {URLManager} from "@shared/url-manager";
+import styles from "./profile.module.scss";
 import {useAppDispatch, useAppSelector} from "@shared/hooks";
-import {cleanBasketThunk, getBasketThunk, clearBasketState} from "@store/slices/basketSlice";
 import {withAuth} from "@shared/HOC";
-import {createOrderThunk} from "@store/slices/orderSlice";
+import {getProfileThunk} from "@store/slices/profileSlice";
+import { useRouter } from 'next/router'
 
-function Basket() {
-    const router = useRouter();
+function Profile() {
+    const router = useRouter()
     const dispatch = useAppDispatch();
-    const basket = useAppSelector((state) => state.basket)
+    const profile = useAppSelector(state => state.profile)
 
-    useEffect(() => {
-        dispatch(getBasketThunk())
-    }, [])
+    useEffect(()=>{
+        dispatch(getProfileThunk())
+    })
 
-    const clearBasket = () => {
-        dispatch(cleanBasketThunk());
-        dispatch(clearBasketState());
+    const handleLogout = () => {
+        localStorage.clear()
+        router.reload()
     }
-
-    const handleProducts = () => {
-        router.push(URLManager.getHistoryURL())
-        dispatch(createOrderThunk())
-    }
-
 
     return <React.Fragment>
         <div className={styles.content}>
             <div className={styles.header}>
-                <div className={styles.cafeName}>КОРЗИНА</div>
+                <div className={styles.headerName}>Профиль</div>
             </div>
-            {basket?.cafesBaskets?.map(cafe =>
-                <BasketCard key={cafe.id}
-                            id={cafe.id}
-                            name={cafe.name}
-                            products={cafe.products}/>
-            )}
+            <div className={styles.nameEmail}>
+                <div className={styles.uName}>{profile.name}</div>
+                <div className={styles.uEmail}>{profile.email}</div>
+            </div>
+            <div className={styles.wrapper} onClick={handleLogout}>
+                <div>Выйти из аккаунта</div>
+            </div>
         </div>
-
-        {basket.totalProductsCount ?
-            <div className={cn(styles.button, styles.clearButton)} onClick={clearBasket}>Очистить корзину</div>
-            : <div className={styles.emptyBasketText}>Корзина пуста</div>}
-
-        {basket.totalProductsCount ? <div className={cn(styles.button, styles.submitButton)}
-                                           onClick={handleProducts}>
-            Оформить заказ на {basket.totalPrice} ₽
-        </div> : ''}
-
-        <div className={styles.placeForButtons}/>
     </React.Fragment>
 }
 
-export default withAuth(Basket)
+export default withAuth(Profile)
