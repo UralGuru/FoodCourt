@@ -42,12 +42,14 @@ function Basket() {
             )}
         </div>
 
-        {basket.totalProductsCount ? <div className={cn(styles.button, styles.clearButton)} onClick={clearBasket}>Очистить корзину</div>
+        {basket.totalProductsCount ?
+            <div className={cn(styles.button, styles.clearButton)} onClick={clearBasket}>Очистить корзину</div>
             : <div className={styles.emptyBasketText}>Корзина пуста</div>}
 
-        <div className={cn(styles.button, styles.submitButton)}
-             onClick={handleProducts}>Оформить заказ
-        </div>
+        {basket.totalProductsCount ? <div className={cn(styles.button, styles.submitButton)}
+                                           onClick={handleProducts}>
+            Оформить заказ на {basket.totalPrice} ₽
+        </div> : ''}
 
         <div className={styles.placeForButtons}/>
     </React.Fragment>

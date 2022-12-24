@@ -13,6 +13,7 @@ const ORDER_STATE: OrderState = {
         comment: '',
         cafeName: '',
         cafeId: 0,
+        products: []
     }
 };
 
@@ -29,11 +30,10 @@ export const createOrderThunk = createAsyncThunk<OrderResponse, undefined, { rej
     });
 
 export const getOrderThunk = createAsyncThunk<SearchResponseOfOrderResponse>
-('basket/getOrders',
+('order/getOrders',
     async function (_, {rejectWithValue}) {
         try {
             const response = await OrderService.getOrders();
-            console.log(response)
             return response;
         } catch {
             return rejectWithValue('Server Error!');
@@ -41,7 +41,7 @@ export const getOrderThunk = createAsyncThunk<SearchResponseOfOrderResponse>
     });
 
 export const getItemOrderThunk = createAsyncThunk
-('basket/getItemOrder',
+('order/getItemOrder',
     async function (id:number,  {rejectWithValue}) {
         try {
             const response = await OrderService.gerItemOrder(id);
@@ -62,10 +62,7 @@ const orderSlice = createSlice({
                 state.foundEntities = action.payload.foundEntities;
             })
             .addCase(getItemOrderThunk.fulfilled, (state, action) => {
-                // state.orderItem = action.payload;
-                // state.totalCount;
-                // state.foundEntities;
-                console.log('i am here')
+                state.orderItem = action.payload;
             })
             },
 

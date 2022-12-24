@@ -3,12 +3,15 @@ import React from "react";
 import {URLManager} from "@shared/url-manager";
 import {useRouter} from "next/router";
 import {OrderResponse} from "@constants/types";
+import {useAppDispatch} from "@shared/hooks";
+import {getItemOrderThunk} from "@store/slices/orderSlice";
 
 export default function HistoryCard(props: OrderResponse) {
     const router = useRouter();
+    const dispatch = useAppDispatch();
 
     const openItemOrder = () => {
-        console.log(props.id)
+        dispatch(getItemOrderThunk(props.id))
         router.push(URLManager.getOrderURL())
     }
 

@@ -1,8 +1,9 @@
 import styles from "./orderProductCard.module.scss";
 import React from "react";
+import {BasketProductResponse} from "@constants/types";
 
-export function OrderProductCard(){
-    const avatar = 'https://attuale.ru/wp-content/uploads/2018/11/2018Food___Cakes_and_Sweet_Sweet_pancakes_with_blueberries_and_strawberries_on_the_table_126359_.jpg'
+export function OrderProductCard(props:BasketProductResponse){
+    const countProduct = (props.count - 1) ? ('x' + props.count) : '';
 
     return(
         <div className={styles.result}>
@@ -11,18 +12,18 @@ export function OrderProductCard(){
                 <div className={styles.cafeProductItem}>
                     <div
                         className={styles.cafeProductImage}
-                        style={{ backgroundImage: `url(${avatar})` }}
+                        style={{ backgroundImage: `url(${props.avatar})` }}
                     ></div>
                     <div className={styles.cafeProductTextContent}>
                         <div>
-                            <div className={styles.cafeProductTitle}>Анигири</div>
+                            <div className={styles.cafeProductTitle}>{props.name}</div>
                             <div className={styles.productItemDescriptionContent}>
-                                Ахуенные вкусные и бла бла бла
+                                {props.description}
                             </div>
                         </div>
 
                         <div className={styles.cafeProductFooter}>
-                            <div className={styles.cafeProductPrice}>700 ₽</div>
+                            <div className={styles.cafeProductPrice}>{props.price} ₽ {countProduct}</div>
                             <div />
                         </div>
                     </div>

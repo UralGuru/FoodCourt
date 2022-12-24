@@ -88,11 +88,6 @@ export interface CafeBasket {
   products: BasketProductResponse[];
 }
 
-export interface patchBasketThunk {
-  id: number;
-  count: number;
-}
-
 export interface BasketProductResponse {
   id: number;
   name: string;
@@ -120,13 +115,15 @@ export interface BasketProductResponse {
   count: number;
 }
 
-export interface OrderState extends SearchResponseOfOrderResponse {
-  orderItem: OrderResponse
-}
+
 
 export interface SearchResponseOfOrderResponse {
   foundEntities: OrderResponse[];
   totalCount: number;
+}
+
+export interface OrderState extends SearchResponseOfOrderResponse {
+  orderItem: OrderResponse
 }
 
 export interface OrderResponse {
@@ -137,6 +134,7 @@ export interface OrderResponse {
   comment: string;
   cafeId: number;
   cafeName: string;
+  products: BasketProductResponse[]
 }
 
 export enum OrderStatus {

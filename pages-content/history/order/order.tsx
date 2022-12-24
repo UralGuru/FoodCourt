@@ -16,19 +16,38 @@ export function Order() {
             </div>
             <div className={styles.title}>{order.cafeName}</div>
 
-            <OrderProductCard/>
+            {order.products.map(p => <OrderProductCard key={p.id}
+                                                       id={p.id}
+                                                       name={p.name}
+                                                       description={p.description}
+                                                       avatar={p.avatar}
+                                                       status={'Available'}
+                                                       price={p.price}
+                                                       proteins={p.proteins}
+                                                       fats={p.fats}
+                                                       carbohydrates={p.carbohydrates}
+                                                       weight={p.weight}
+                                                       kcal={p.kcal}
+                                                       cafeId={p.cafeId}
+                                                       productVariants={p.productVariants}
+                                                       productTypes={p.productTypes}
+                                                       productId={p.productId}
+                                                       count={p.count}
+            />)}
+
 
             <div className={styles.footer}>
                 <div className={styles.resultPrice}>
-                    <div>Статус</div><div>в процессе</div>
+                    <div>Статус</div>
+                    <div>в процессе</div>
                 </div>
                 <div className={styles.resultPrice}>
-                    <div>Итого</div><div>{order.totalPrice} ₽</div>
+                    <div>Итого</div>
+                    <div>{order.totalPrice} ₽</div>
                 </div>
             </div>
 
         </div>
-        <div className={cn(styles.button, styles.submitButton)}>Заказать</div>
         <div className={styles.placeForButtons}/>
     </React.Fragment>
 }
