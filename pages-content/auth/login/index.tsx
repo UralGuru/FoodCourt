@@ -134,7 +134,7 @@ export const LoginPageContent: FC = () => {
           </div>
           <div>
             <form action="http://food-court.tk:8080/v1.0/auth/account/external-login?provider=Google&backUrl=/home" method="post">
-              <button className={cn(styles.button, styles.buttonGoogle)}>
+              <button className={cn(styles.button, styles.buttonGoogle)} onClick={() => setTimeout(()=>{router.reload()}, 1000)}>
                 <AiOutlineGoogle style={{ fontSize: 25, marginRight: 5 }} />
                 <div>Google</div>
               </button>

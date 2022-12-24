@@ -181,14 +181,12 @@ export const RegisterPageContent: FC = () => {
             </div>
           </div>
           <div>
-            <button
-              className={cn(styles.button, styles.buttonGoogle)}
-              // onClick={() => AuthService.loginWidthGoogle()}
-              onClick={() => console.log('Auth width Google')}
-            >
-              <AiOutlineGoogle style={{ fontSize: 25, marginRight: 5 }} />
-              <div>Google</div>
-            </button>
+            <form action="http://food-court.tk:8080/v1.0/auth/account/external-login?provider=Google&backUrl=/home" method="post">
+              <button className={cn(styles.button, styles.buttonGoogle)} onClick={() => setTimeout(()=>{router.reload()}, 1000)}>
+                <AiOutlineGoogle style={{ fontSize: 25, marginRight: 5 }} />
+                <div>Google</div>
+              </button>
+            </form>
           </div>
         </div>
       </div>
