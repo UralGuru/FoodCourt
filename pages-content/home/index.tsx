@@ -9,11 +9,13 @@ import styles from './home.module.scss';
 import {withAuth} from "@shared/HOC";
 import {useRouter} from "next/router";
 import {URLManager} from "@shared/url-manager";
+import {getProfileThunk} from "@store/slices/profileSlice";
 
 const HomePageContent: FC = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const cafes = useAppSelector((state) => state.cafe);
+  const user = useAppSelector((state) => state.profile);
 
   useEffect(() => {
     dispatch(clearMessage());
@@ -23,15 +25,19 @@ const HomePageContent: FC = () => {
     dispatch(getCafesThunk());
   }, []);
 
+  useEffect(()=>{
+    dispatch(getProfileThunk())
+  })
+
   return (
     <React.Fragment>
       <div className={styles.content}>
         <div className={styles.header}>
           <div>
-            <div className={styles.userName}>Урал</div>
+            <div className={styles.userName}>{user.name}</div>
             <div>Доброго времени суток</div>
           </div>
-          <div className={styles.userIcon} onClick={()=>router.push(URLManager.getProfileURL())}>У</div>
+          <div className={styles.userIcon} onClick={()=>router.push(URLManager.getProfileURL())}>{user.name[0]}</div>
         </div>
         <div className={styles.searchContent}>
           <AiOutlineSearch className={styles.searchIcon} />
