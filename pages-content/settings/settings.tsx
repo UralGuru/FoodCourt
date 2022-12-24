@@ -23,6 +23,10 @@ function Settings() {
                 <div>Правила пользования</div>
             </div>
 
+            <div className={styles.wrapper} onClick={()=>router.push(URLManager.getLocationURL())}>
+                <div>Узнать свою геопозицию</div>
+            </div>
+
         </div>
     </React.Fragment>
 }
