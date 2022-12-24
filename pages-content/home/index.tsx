@@ -29,6 +29,8 @@ const HomePageContent: FC = () => {
     dispatch(getProfileThunk())
   })
 
+
+
   return (
     <React.Fragment>
       <div className={styles.content}>
@@ -41,7 +43,7 @@ const HomePageContent: FC = () => {
         </div>
         <div className={styles.searchContent}>
           <AiOutlineSearch className={styles.searchIcon} />
-          Поиск
+          <input className={styles.searchBlock}/>
         </div>
         {cafes.foundEntities.map((cafe) => (
           <CafeCard

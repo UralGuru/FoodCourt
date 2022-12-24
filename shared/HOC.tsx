@@ -15,7 +15,6 @@ export const withAuth = (Component: FC) => {
                     accessToken = localStorage.getItem('access-token') ?? "";
                 }
                 if (!accessToken) {
-                    // router.push('/auth/login');
                     router.push(URLManager.getLoginURL());
                 } else {
                     setData(!!accessToken);

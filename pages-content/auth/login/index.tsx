@@ -33,6 +33,9 @@ export const LoginPageContent: FC = () => {
   // Handlers
   const handlerFormSubmit = handleSubmit((formValue) =>{
     dispatch(loginThunk(formValue));
+    setTimeout(()=>{
+      router.reload()
+    }, 1000);
 });
 
   // Events

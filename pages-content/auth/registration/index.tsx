@@ -30,18 +30,15 @@ export const RegisterPageContent: FC = () => {
   const authMessage = user.isSuccess ? 'Успешная регистрация' : user.message;
 
   // Handlers
-  const handlerFormSubmit = handleSubmit((formValue) =>
+  const handlerFormSubmit = handleSubmit((formValue) => {
     dispatch(registerThunk(formValue))
-  );
+    router.push(URLManager.getLoginURL())
+  });
 
   // Events
   useEffect(() => {
     dispatch(clearMessage());
   }, []);
-
-  useEffect(() => {
-    if (user.isSuccess) router.push(URLManager.getLoginURL());
-  }, [user.isSuccess]);
 
   return (
     <React.Fragment>
