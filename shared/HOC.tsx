@@ -19,7 +19,7 @@ export const withAuth = (Component: FC) => {
                     console.log(cookie)
                     !!cookie?.ApiTokens?.IsSuccess && localStorage.setItem('access-token', cookie.ApiTokens.acssessToken)
                     accessToken = localStorage.getItem('access-token') ?? "";
-                    removeCookie('ApiTokens');
+                    //removeCookie('ApiTokens');
 
 
                 }
