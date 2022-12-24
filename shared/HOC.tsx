@@ -5,7 +5,7 @@ import {useCookies, Cookies} from "react-cookie";
 
 export const withAuth = (Component: FC) => {
     const AuthenticatedComponent = () => {
-        const [cookie, setCookie, removeCookie] = useCookies(['ApiTokens']);
+        const [cookie] = useCookies(['ApiTokens']);
 
         const router = useRouter();
         const [data, setData] = useState(false);
@@ -16,14 +16,17 @@ export const withAuth = (Component: FC) => {
             const getUser = async () => {
                 let accessToken = '';
                 if (typeof window !== 'undefined') {
-                    console.log(cookie)
-                    !!cookie?.ApiTokens?.IsSuccess && localStorage.setItem('access-token', cookie.ApiTokens.acssessToken)
+                    if (cookie?.ApiTokens?.acssessToken)
+                    {
+                        console.log(cookie.ApiTokens.acssessToken);
+                        localStorage.setItem('access-token', cookie.ApiTokens.acssessToken);
+                        console.log(localStorage.getItem('access-token'));
+                    }
+                    console.log(cookie);
                     accessToken = localStorage.getItem('access-token') ?? "";
-                    //removeCookie('ApiTokens');
-
-
                 }
                 if (!accessToken) {
+                    console.log("wtf")
                     router.push(URLManager.getLoginURL());
                 } else {
                     setData(!!accessToken);
