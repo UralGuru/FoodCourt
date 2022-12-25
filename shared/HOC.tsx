@@ -9,7 +9,6 @@ export const withAuth = (Component: FC) => {
 
         const router = useRouter();
         const [data, setData] = useState(false);
-        console.log(cookie)
 
 
         useEffect(() => {

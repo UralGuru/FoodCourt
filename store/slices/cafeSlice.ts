@@ -1,7 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import CafeService from '../../services/cafe.service';
-import {number} from "prop-types";
-import {CafeResponse, CafeState} from "@constants/types";
+import {CafeResponse, CafeState, createCafeBek} from "@constants/types";
 
 
 
@@ -52,6 +51,15 @@ export const getCafesThunk = createAsyncThunk<CafeResponse, undefined, { rejectV
     try {
         const response = await CafeService.getCafes();
         return response;
+    } catch {
+        return rejectWithValue('Server Error!');
+    }
+});
+export const createCafeThunk = createAsyncThunk
+('cafe/createCafes',
+    async function (data: createCafeBek, {rejectWithValue}) {
+    try {
+         await CafeService.createCafeItem(data);
     } catch {
         return rejectWithValue('Server Error!');
     }

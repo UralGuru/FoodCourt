@@ -11,6 +11,8 @@ class URLManagerStore {
   public getRulesURL() {return `/settings/rules`}
   public getLocationURL() {return `/settings/location`}
   public getApplicationURL() {return `/settings/application`}
+  public getCreateCafeURL() {return `/settings/application/create`}
+  public getMyCreatedCafeURL(id: number) {return `/settings/application/${id}`}
 }
 
 const URLManager = new URLManagerStore();

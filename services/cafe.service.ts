@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {createCafeBek} from "@constants/types";
 
 let accessToken = '';
 if (typeof window !== 'undefined') {
@@ -27,9 +28,18 @@ const getCafeItem = async (id: number) => {
   return response.data;
 };
 
+const createCafeItem = async (data: createCafeBek) => {
+  const response = await instance.post('/cafes', data);
+  if(response.status == 201) {
+    alert(response.data)
+  }
+};
+
 const CafeService = {
   getCafes,
-  getCafeItem
+  getCafeItem,
+  createCafeItem
+
 };
 
 export default CafeService;

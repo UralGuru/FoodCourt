@@ -24,6 +24,18 @@ export interface AuthState {
   refreshToken: string;
 }
 
+export interface createCafeBek {
+  name: string,
+  description: string,
+  address?: string,
+  latitude?: number,
+  longitude?: number,
+  dateRes?: string,
+  rating: string,
+  certifyingDocument: string, // инн
+  personalAccount: string // лс
+}
+
 export interface PropsId {
   id: number;
 }
