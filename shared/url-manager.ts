@@ -10,6 +10,7 @@ class URLManagerStore {
   public getProfileURL() {return `/profile`}
   public getRulesURL() {return `/settings/rules`}
   public getLocationURL() {return `/settings/location`}
+  public getApplicationURL() {return `/settings/application`}
 }
 
 const URLManager = new URLManagerStore();

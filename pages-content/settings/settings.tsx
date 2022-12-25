@@ -15,7 +15,7 @@ function Settings() {
                 <div className={styles.headerName}>Настройки</div>
             </div>
 
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} onClick={()=>router.push(URLManager.getApplicationURL())}>
                 <div>Заявка на открытие своего кафе</div>
             </div>
 
