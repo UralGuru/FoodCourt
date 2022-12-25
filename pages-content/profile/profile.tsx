@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "@shared/hooks";
 import {withAuth} from "@shared/HOC";
 import {getProfileThunk} from "@store/slices/profileSlice";
 import { useRouter } from 'next/router'
+import {BiPencil} from "react-icons/bi";
 
 function Profile() {
     const router = useRouter()
@@ -27,6 +28,7 @@ function Profile() {
             <div className={styles.nameEmail}>
                 <div className={styles.uName}>{profile.name}</div>
                 <div className={styles.uEmail}>{profile.email}</div>
+                <div className={styles.iconPenContent}><BiPencil className={styles.iconPen}/></div>
             </div>
             <div className={styles.wrapper} onClick={handleLogout}>
                 <div>Выйти из аккаунта</div>

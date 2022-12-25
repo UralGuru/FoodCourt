@@ -29,8 +29,6 @@ const HomePageContent: FC = () => {
     dispatch(getProfileThunk())
   })
 
-
-
   return (
     <React.Fragment>
       <div className={styles.content}>
