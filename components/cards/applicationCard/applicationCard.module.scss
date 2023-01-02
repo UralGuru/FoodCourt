@@ -1,0 +1,57 @@
+@import "/styles/colors";
+
+.wrapper{
+  background-color: $grey-content;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+
+.cafeName{
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cafeDate{
+  color: grey;
+  line-height: 20px;
+  align-self: center;
+
+}
+
+.cafeNameDate{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonCafe{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  padding: 12px 32px;
+  color: white;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid white;
+  margin-top: 10px;
+
+  &:active {
+    background: rgba(35, 35, 35, 0.5);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.buttonRefuse{
+  border: 1px solid $red-active-rampage;
+  color: $red-active-rampage;
+}
+.buttonApprove{
+  border: 1px solid $green-kelp-forest;
+  color: $green-kelp-forest;
+}

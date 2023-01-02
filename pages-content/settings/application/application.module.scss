@@ -1,0 +1,49 @@
+@import "/styles/colors";
+
+.content {
+  width: 90%;
+  margin: 15px auto 0;
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerName {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.wrapper{
+  background-color: $grey-content;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  height: 40px;
+  margin: 30px 0;
+  padding: 12px 32px;
+  color: white;
+  border-radius: 10px;
+  background-color: $red-active-rampage;
+  font-size: 20px;
+  font-weight: 600;
+
+  &:active {
+    user-select: none;
+    outline: 0;
+    background: $red-disable-gory;
+    -webkit-tap-highlight-color: transparent;
+  }
+}

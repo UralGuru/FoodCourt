@@ -46,9 +46,9 @@ routes-content
         testName.test.ts|tsx
       components
       helpers
-        index.ts
+        cafeCard.tsx
       types
-        index.ts
+        cafeCard.tsx
       index.tsx
       style.ts
 ```

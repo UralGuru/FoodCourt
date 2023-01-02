@@ -36,7 +36,6 @@ const config: Config = {
     '<rootDir>/.next/',
     '<rootDir>/build/',
     '<rootDir>/docs/',
-    '<rootDir>/.husky/',
   ],
   // transformIgnorePatterns: [`/node_modules/(?!${IGNORED_MODULES.join('|')})`],
 };
