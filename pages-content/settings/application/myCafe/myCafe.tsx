@@ -11,6 +11,7 @@ import {createCafeThunk} from "@store/slices/cafeSlice";
 function MyCafe() {
     const router = useRouter()
     const id = +(router.query.id as string);
+    const valueTxt = (id===1) ? 'value' : 'placeholder';
 
     const {
         register,

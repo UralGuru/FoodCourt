@@ -48,7 +48,7 @@ function Basket() {
 
         {basket.totalProductsCount ? <div className={cn(styles.button, styles.submitButton)}
                                            onClick={handleProducts}>
-            Оформить заказ на {basket.totalPrice} ₽
+            Оформить заказ
         </div> : ''}
 
         <div className={styles.placeForButtons}/>

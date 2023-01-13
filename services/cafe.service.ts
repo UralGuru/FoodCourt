@@ -29,7 +29,7 @@ const getCafeItem = async (id: number) => {
 };
 
 const createCafeItem = async (data: createCafeBek) => {
-  const response = await instance.post('/cafes', data);
+  const response = await instance.post('/cafes', {...data, rating: -1});
   if(response.status == 201) {
     alert(response.data)
   }

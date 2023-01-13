@@ -32,13 +32,9 @@ function CreateCafe() {
     const handlerFormSubmit = handleSubmit((formValue) => {
         getLocation(formValue.address).then(e => {
             formValue = {...formValue, latitude: e?.split(' ')[1], longitude: e?.split(' ')[0]}
-            console.log(formValue)
             router.push(URLManager.getApplicationURL())
             dispatch(createCafeThunk(formValue));
         })
-        // setTimeout(() => {
-        //     router.reload()
-        // }, 1000);
     });
 
     return <React.Fragment>
@@ -127,28 +123,6 @@ function CreateCafe() {
                                 type='text'
                             />
                             {errors.personalAccount && (
-                                <div>
-                                    <span className={styles.errorMsg} role='alert'>
-                                      Введите лицевой счет
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    {/* RATING */}
-                    <div className={styles.label}>
-                        <label className={styles.labelText} htmlFor='rating'>
-                            Рейтинг
-                        </label>
-                        <div>
-                            <input
-                                id='rating'
-                                className={cn(styles.labelInput)}
-                                {...register("rating", { required: true })}
-                                name='rating'
-                                type='text'
-                            />
-                            {errors.rating && (
                                 <div>
                                     <span className={styles.errorMsg} role='alert'>
                                       Введите лицевой счет
