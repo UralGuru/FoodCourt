@@ -1,0 +1,120 @@
+@import "../../../styles/colors";
+
+
+.content {
+  width: 90%;
+  padding-top: 15px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle{
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.redirectTo {
+  margin-left: 3px;
+  user-select: none;
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid $grey-rainy;
+  outline: 0;
+  highlight-color: transparent;
+}
+
+.arrowBack{
+  position: absolute;
+  font-size: 25px;
+  top: 15px;
+  transform: translateX(-2px);
+  border: none;
+}
+
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+  background-color: $red-active-rampage;
+  font-size: 20px;
+  font-weight: 600;
+  user-select: none;
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+
+  margin: 0 auto;
+
+  &:active {
+    user-select: none;
+    outline: 0;
+    background: $red-disable-gory;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.clearButton{
+  margin-top: 20px;
+  background-color: $bg-young-night;
+  border: 1px solid $grey-tin;
+  &:active {
+    background: $grey-tin;
+  }
+
+}
+.title{
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.product{
+  display: flex;
+  justify-content: space-between;
+}
+
+.result{
+  width: 100%;
+  background-color: #282828;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.resultPrice{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer{
+  margin-top: 10px;
+}
+
+.submitButton {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 60px;
+}
+
+.placeForButtons {
+  height: 150px;
+}
+
+
+
+
+
+
+
+
+
+

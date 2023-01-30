@@ -1,0 +1,43 @@
+@import "../../styles/colors";
+
+.navbar{
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 5px;
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+
+  background: $bg-young-night;
+  border: 1px solid grey;
+  border-radius: 10px;
+  line-height: 100%;
+  justify-content: space-around;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.navbarItem{
+  text-align: center;
+  vertical-align: center;
+  line-height: 12px;
+  width: 25%;
+  color: white;
+  font-size: 13px;
+}
+
+.navbarItemActive{
+  background: $red-disable-gory;
+}
+
+.navbarItem:hover{
+  background: $red-active-rampage;
+}
+
+.icon{
+  margin-top: 2px;
+  font-size: 30px;
+}
+

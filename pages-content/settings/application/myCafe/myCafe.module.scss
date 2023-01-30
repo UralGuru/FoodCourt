@@ -1,0 +1,134 @@
+@import "/styles/colors";
+
+.content {
+  width: 90%;
+  margin: 15px auto 0;
+  max-width: 500px;
+}
+
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerName {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.errorBlock {
+  position: relative;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonCafe{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  padding: 12px 32px;
+  color: white;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid white;
+  margin-top: 20px;
+
+  &:active {
+    background: rgba(35, 35, 35, 0.5);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.buttonRefuse{
+  border: 1px solid $red-active-rampage;
+  color: $red-active-rampage;
+}
+
+.buttonApprove{
+  border: 1px solid $green-kelp-forest;
+  color: $green-kelp-forest;
+}
+
+.label{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.label input{
+  color: white;
+  text-align: right;
+  outline: none;
+  background-color: transparent;
+}
+
+.label textarea{
+  color: white;
+  font-size: 13px;
+  outline: none;
+  background-color: transparent;
+}
+
+.labelLast{
+  margin: 20px 0;
+}
+
+.labelLast textarea{
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+
+  color: white;
+  font-size: 13px;
+  outline: none;
+
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 5px;
+  background: #282828;
+  -webkit-tap-highlight-color: transparent;
+  &:focus{
+    outline: none;
+  }
+}
+
+.labelLastText{
+  font-size: 13px;
+}
+
+.messageSuccess {
+  margin: 20px 0;
+  * {
+    color: $green-kelp-forest;
+    margin: 5px 0;
+  }
+}
+
+.messageError {
+  margin: 20px 0;
+  * {
+    color: $red-active-rampage;
+    margin: 5px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

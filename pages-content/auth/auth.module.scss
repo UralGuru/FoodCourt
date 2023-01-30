@@ -1,0 +1,139 @@
+@import "/styles/colors";
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+  font-family: "Open Sans", sans-serif;
+  user-select: none;
+}
+
+.header {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.label {
+  margin-top: 30px;
+}
+
+.labelText {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.labelInput {
+  width: 90vw;
+  max-width: 500px;
+  color: white;
+  border-bottom: 1px solid $grey-tin;
+  background: rgb(0 0 0 / 0%);
+  -webkit-tap-highlight-color: transparent;
+  &:focus{
+    outline: none;
+  }
+}
+
+.eyeContainer {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  left: -25px;
+}
+
+.errorBlock {
+  position: relative;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.errorMsg {
+  font-size: 15px;
+  color: $red-active-rampage;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  height: 40px;
+  margin-top: 30px;
+  padding: 12px 32px;
+  color: white;
+  border-radius: 20px;
+  background-color: $red-active-rampage;
+  font-size: 20px;
+  font-weight: 600;
+
+  &:active {
+    user-select: none;
+    outline: 0;
+    background: $red-disable-gory;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.buttonGoogle {
+  margin-top: 15px;
+  color: black;
+  background: white;
+
+  &:active {
+    background: $grey-rainy;
+  }
+}
+
+.textGroupBetweenBtn {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.textBetweenBtn {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.regText {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.redirectTo {
+  margin-left: 3px;
+  user-select: none;
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid $grey-rainy;
+  outline: 0;
+  highlight-color: transparent;
+}
+
+.arrowBack{
+  position: absolute;
+  font-size: 25px;
+  top: 15px;
+  transform: translateX(-2px);
+  border: none;
+}

@@ -1,8 +1,19 @@
-import { HomePageContent } from '@pages-content/home';
 import type { NextPage } from 'next';
+import Head from 'next/head';
+import React from 'react';
+import 'regenerator-runtime/runtime';
+import  HomePageContent  from '@pages-content/home';
+import {withAuth} from "@shared/HOC";
 
 const HomePage: NextPage = () => {
-  return <HomePageContent />;
+  return (
+    <React.Fragment>
+      <Head>
+        <title>FoodCourt</title>
+      </Head>
+      <HomePageContent />
+    </React.Fragment>
+  );
 };
 
 export default HomePage;
